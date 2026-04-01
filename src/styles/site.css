@@ -1,14 +1,14 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --color-brand-light: #FECE56;
-  --color-brand-gold: #FCB953;
-  --color-brand-orange: #FDA04F;
-  --color-brand-brown: #5A4831;
-  --dlf-yellow: #FECE56;
-  --dlf-gold: #FCB953;
-  --dlf-orange: #FDA04F;
-  --dlf-brown: #5A4831;
+  --color-brand-light: #fece56;
+  --color-brand-gold: #fcb953;
+  --color-brand-orange: #fda04f;
+  --color-brand-brown: #5a4831;
+  --dlf-yellow: #fece56;
+  --dlf-gold: #fcb953;
+  --dlf-orange: #fda04f;
+  --dlf-brown: #5a4831;
 }
 
 .portal-frame {
