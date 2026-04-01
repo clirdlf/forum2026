@@ -1,6 +1,4 @@
-const withMT = require('@material-tailwind/html/utils/withMT');
-
-module.exports = withMT({
+module.exports = {
   content: [
     './src/**/*.{html,njk}',
     //"./node_modules/tw-elements/js/**/*.js"
@@ -15,4 +13,4 @@ module.exports = withMT({
   },
   //plugins: [ require("tw-elements/plugin.cjs") ],
   darkMode: 'class',
-});
+};

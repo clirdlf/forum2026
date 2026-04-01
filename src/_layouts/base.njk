@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>
+            {% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
+        <meta name="description" content="{{ metadata.description }}"/>
+        <meta name="generator" content="{{ eleventy.generator }}"/>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+        <link media="screen" rel="stylesheet" href="{{ '/site.css' }}"/>
+        <style>
+            {% getBundle "css" %}
+        </style>
+    </head>
+    <body>
+        {% include "header.njk" %}
+        <main>
+            {{ content | safe }}
+        </main>
+        {% include "footer.njk" %}
+    </body>
+</html>
