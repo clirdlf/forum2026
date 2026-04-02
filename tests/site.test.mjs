@@ -9,7 +9,7 @@ test('build outputs a homepage with core forum messaging', async () => {
   assert.match(html, /FORUM 2026/i);
   assert.match(
     html,
-    /A fully virtual experience connecting digital practitioners from around the globe\./i,
+    /A fully virtual experience connecting digital practitioners from around the globe\./i
   );
   assert.match(html, /Why Virtual\?/i);
 });
