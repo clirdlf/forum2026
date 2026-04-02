@@ -194,7 +194,8 @@ module.exports = function (eleventyConfig) {
       layouts: '_layouts',
       includes: '_includes',
     },
-    pathPrefix: branch === 'dev' ? '/forum2025-dev/' : '',
+    pathPrefix: '/forum2026/'
+    //pathPrefix: branch === 'dev' ? '/forum2026/' : '',
   };
 };
 
