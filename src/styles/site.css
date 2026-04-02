@@ -2,7 +2,7 @@
 
 @theme {
   /* Colors */
-  --color-on-primary: #ffffff;
+  --color-on-primary: #fff;
   --color-background: #fdfaf5;
   --color-surface-container-low: #f5f0e6;
   --color-tertiary-fixed-dim: #e8e1d4;
@@ -13,7 +13,7 @@
   --color-on-secondary-fixed-variant: #635c4e;
   --color-inverse-primary: #adc6ff;
   --color-secondary-fixed: #eaddc9;
-  --color-on-tertiary: #ffffff;
+  --color-on-tertiary: #fff;
   --color-surface: #fdfaf5;
   --color-secondary-fixed-dim: #d9cdb8;
   --color-primary-container: #4677c2;
@@ -21,19 +21,19 @@
   --color-on-surface-variant: #6b6255;
   --color-surface-tint: #4677c2;
   --color-tertiary: #7d7465;
-  --color-on-secondary: #ffffff;
+  --color-on-secondary: #fff;
   --color-surface-bright: #fffdfa;
   --color-secondary-container: #f0e6d2;
   --color-outline-variant: #d9cfbf;
   --color-primary: #4677c2;
   --color-on-secondary-container: #241d12;
   --color-outline: #8b8071;
-  --color-on-primary-container: #ffffff;
+  --color-on-primary-container: #fff;
   --color-surface-container-highest: #e5dbc8;
   --color-on-tertiary-fixed: #241d12;
   --color-on-tertiary-fixed-variant: #5c5243;
   --color-secondary: #7c7261;
-  --color-on-error: #ffffff;
+  --color-on-error: #fff;
   --color-on-secondary-fixed: #241d12;
   --color-on-error-container: #410002;
   --color-on-surface: #2d2822;
@@ -42,7 +42,7 @@
   --color-primary-fixed-dim: #adc6ff;
   --color-on-tertiary-container: #241d12;
   --color-on-background: #2d2822;
-  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-lowest: #fff;
   --color-on-primary-fixed: #001a41;
   --color-inverse-surface: #38332d;
   --color-surface-dim: #e2dac9;
@@ -71,11 +71,13 @@
     'GRAD' 0,
     'opsz' 24;
 }
+
 .editorial-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
 }
+
 .glass-nav {
   backdrop-filter: blur(12px);
 }

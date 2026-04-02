@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': '#1E40AF',
-      }
-    }
+        primary: '#1E40AF',
+      },
+    },
   },
   //plugins: [ require("tw-elements/plugin.cjs") ],
   darkMode: 'class',
