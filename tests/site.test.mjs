@@ -5,11 +5,11 @@ import test from 'node:test';
 test('build outputs a homepage with core forum messaging', async () => {
   const html = await readFile(new URL('../_site/index.html', import.meta.url), 'utf8');
 
-  assert.match(html, /<title>\s*Welcome\s*-\s*<\/title>/i);
-  assert.match(html, /FORUM 2026/i);
+  assert.match(html, /<title>\s*Welcome\s*-\s*DLF Forum 2026\s*<\/title>/i);
+  assert.match(html, /DLF Virtual Forum/i);
   assert.match(
     html,
-    /A fully virtual experience connecting digital practitioners from around the globe\./i
+    /A digital gathering place for GLAM professionals to share, sustain, and innovate\./i
   );
-  assert.match(html, /Why Virtual\?/i);
+  assert.match(html, /The DLF Forum/i);
 });
