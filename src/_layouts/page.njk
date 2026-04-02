@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+{# Hero section #}
+<section class="relative h-[614px] flex items-center justify-center overflow-hidden bg-primary-container">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40 z-10"></div>
+        <img class="w-full h-full object-cover" data-alt="conceptual digital grid with glowing light nodes and connections representing virtual knowledge networking and academic collaboration" alt="conceptual digital grid with glowing light nodes and connections representing virtual knowledge networking and academic collaboration" src="{{ cover }}"/>
+    </div>
+    <div class="relative z-20 text-center px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-7xl font-headline font-extrabold text-on-primary-container mb-6 tracking-tight">{{ title }}</h1>
+        <p class="text-xl md:text-2xl text-on-primary-container/90 font-medium mb-8">{{ byline }}</p>
+        {# TODO figure out a way to display this better #}
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a class="px-8 py-4 bg-tertiary-container text-on-tertiary-container rounded-xl font-bold text-lg transition-transform hover:scale-105 active:scale-95 shadow-lg" href="#submit">Submit Your Proposal</a>
+            <a class="px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white rounded-xl font-bold text-lg hover:bg-white/20 transition-all" href="#about">Learn More</a>
+        </div>
+    </div>
+</section>
+
+{{ content | safe }}
