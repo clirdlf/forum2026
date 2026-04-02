@@ -55,7 +55,7 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
-    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-standard": "^39.0.1",
     "stylelint-config-tailwindcss": "^1.0.1"
   }
 }
