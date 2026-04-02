@@ -1,23 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>
-            {% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
+            {% if title %}{{ title }} - {% endif %}{{ metadata.title }}
+        </title>
         <meta name="description" content="{{ metadata.description }}"/>
         <meta name="generator" content="{{ eleventy.generator }}"/>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+        {# Icons #}
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ '/static/apple-touch-icon.png' }}"/>
+        <link rel="icon" type="image/svg+xml" href="{{ '/static/favicon.svg' }}"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ '/static/favicon-32x32.png'  }}"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ '/static/favicon-16x16.png'  }}"/>
+        <link rel="shortcut icon" href="{{ '/static/favicon.ico' }}"/>
+        {# Fonts #}
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+        {# Styles #}
         <link media="screen" rel="stylesheet" href="{{ '/site.css' }}"/>
         <style>
             {% getBundle "css" %}
         </style>
+        {%- if preload %}
+            {%- for link in preload %}
+                <link rel="preload" as="image" href="{{ link }}">
+            {%- endfor %}
+        {%- endif %}
+        {# Google Analytics #}
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ metadata.google_id }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', '{{ metadata.google_id }}');
+        </script>
     </head>
-    <body class="bg-white text-brand-brown font-sans bg-dots bg-fixed">
+    <body class="bg-background text-on-surface font-body selection:bg-primary/20 selection:text-primary">
         {% include "header.njk" %}
         <main>
+            
             {{ content | safe }}
+            
         </main>
-        {% include "footer.njk" %}
+        {# {% include "footer.njk" %} #}
     </body>
 </html>

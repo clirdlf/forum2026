@@ -1,11 +1,15 @@
-<nav class="p-6 flex justify-between items-center bg-white/90 backdrop-blur-md border-b border-brand-light">
-        <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-brand-gold rounded-full flex items-center justify-center font-bold text-white">DLF</div>
-            <span class="text-xl font-black uppercase tracking-tighter">Forum 2026</span>
-        </div>
-        <div class="space-x-6 font-semibold">
-            <a href="/" class="hover:text-brand-orange">Home</a>
-            <a href="/cfp/" class="hover:text-brand-orange">Call for Proposals</a>
-            <a href="#" class="bg-brand-brown text-white px-6 py-2 rounded-full hover:bg-brand-orange transition shadow-lg">Submit</a>
-        </div>
-    </nav>
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl rounded-2xl bg-surface/80 backdrop-blur-md flex justify-between items-center px-8 py-4 z-50 shadow-[0_8px_32px_rgba(70,119,194,0.06)] border border-outline-variant/30">
+    <div class="font-headline font-black text-primary tracking-tighter text-xl" style="">
+        DLF Virtual Forum
+    </div>
+    <div class="hidden md:flex gap-8 items-center">
+        <a class="font-headline tracking-tight font-bold text-lg text-primary border-b-4 border-primary/40 pb-1" href="/" style="">Home</a>
+        <a class="font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="#" style="">CFP</a>
+        {# <a class="font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="#" style="">News</a>
+        <a class="font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="#" style="">Archive</a> #}
+    </div>
+    <div class="flex items-center gap-4">
+        <button class="hidden md:block text-primary font-semibold hover:opacity-80 transition-opacity" style="">Submit a Proposal</button>
+        {# <button class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold hover:scale-95 duration-200 ease-in-out" style="">Register</button> #}
+    </div>
+</nav>

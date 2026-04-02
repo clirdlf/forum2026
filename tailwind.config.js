@@ -6,10 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Custom color used for Bronze sponsors
-        bronze: '#ca8a04',
-      },
-    },
+        'primary': '#1E40AF',
+      }
+    }
   },
   //plugins: [ require("tw-elements/plugin.cjs") ],
   darkMode: 'class',
