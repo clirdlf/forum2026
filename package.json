@@ -51,11 +51,11 @@
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "rimraf": "^6.1.3",
-    "stylelint": "^16.18.0",
+    "stylelint": "^16.26.1",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "stylelint-config-standard": "^38.0.0",
-    "stylelint-config-tailwindcss": "^1.0.0"
+    "stylelint-config-tailwindcss": "^1.0.1"
   }
 }
