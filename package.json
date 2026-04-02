@@ -18,7 +18,7 @@
     "lint:css": "stylelint \"src/**/*.{css,scss}\"",
     "lint:html": "html-validate \"src/**/*.{html,njk}\"",
     "lint": "pnpm lint:js && pnpm lint:css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "pnpm build && node --test tests/site.test.mjs"
   },
   "keywords": [
     "eleventy",
