@@ -1,8 +1,13 @@
-<footer class="bg-brand-brown text-white p-12 mt-20">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="mb-6 flex justify-center gap-2">
-                {% for i in range(0, 5) %}<div class="w-3 h-3 bg-brand-gold rounded-full opacity-{{ 20 * i }}"></div>{% endfor %}
-            </div>
-            <p>© 2026 Digital Library Federation | Virtual Forum</p>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full mt-20 border-t border-outline-variant/30">
+    <div class="w-full py-16 px-8 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+        <div class="flex flex-col items-center md:items-start gap-3">
+            <div class="font-headline font-extrabold text-primary text-xl">{{ metadata.title }}</div>
+            <p class="font-body text-sm leading-relaxed text-on-surface-variant">
+                ©2026 <a href="https://www.diglib.org/" target="_blank" rel="noopener noreferrer" class="underline hover:text-primary">Digital Library Federation</a>.</p>
         </div>
-    </footer>
+        <div class="flex flex-wrap justify-center gap-10">
+           {% include "footer-nav.njk" %}
+        </div>
+    </div>
+</footer>
