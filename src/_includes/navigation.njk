@@ -1,11 +1,12 @@
 {%- set navPages = collections.all | eleventyNavigation -%}
+{%- set proposalUrl = metadata.proposal_url -%}
 
 
-<nav id="site-nav" class="fixed top-4 left-1/2 z-50 flex w-[95%] max-w-7xl -translate-x-1/2 flex-col rounded-2xl border border-outline-variant/30 bg-surface/80 px-5 py-3 shadow-[0_8px_32px_rgba(70,119,194,0.06)] backdrop-blur-md md:px-8 md:py-4">
+<nav id="site-nav" aria-label="Primary" class="fixed top-4 left-1/2 z-50 flex w-[95%] max-w-7xl -translate-x-1/2 flex-col rounded-2xl border border-outline-variant/30 bg-surface/80 px-5 py-3 shadow-[0_8px_32px_rgba(70,119,194,0.06)] backdrop-blur-md md:px-8 md:py-4">
     <div class="flex items-center justify-between gap-4">
-        <div class="font-headline text-xl font-black tracking-tighter text-primary">
+        <a href="/" class="font-headline text-xl font-black tracking-tighter text-primary">
             {{ metadata.title }}
-        </div>
+        </a>
 
         <div class="hidden items-center gap-8 md:flex">
             <div id="pages" class="flex items-center gap-8">
@@ -15,11 +16,15 @@
                     {% if entry.url == page.url %}
                         {% set class = class + ' border-b-4 border-primary/40 pb-1 text-primary' %}
                     {% endif %}
-                    <a class="{{ class }}" href="{{ entry.url }}">{{ entry.title }}</a>
+                    <a class="{{ class }}" href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
                 {% endfor %}
             </div>
 
-            <button class="text-primary font-semibold transition-opacity hover:opacity-80">Submit a Proposal</button>
+            {% if proposalUrl %}
+                <a class="text-primary font-semibold transition-opacity hover:opacity-80" href="{{ proposalUrl }}" target="_blank" rel="noopener noreferrer">Submit a Proposal</a>
+            {% else %}
+                <span class="text-primary/80 font-semibold">Proposal Portal Coming Soon</span>
+            {% endif %}
         </div>
 
         <button
@@ -41,12 +46,18 @@
                 {% if entry.url == page.url %}
                     {% set mobileClass = mobileClass + ' bg-primary/10 text-primary' %}
                 {% endif %}
-                <a class="{{ mobileClass }}" href="{{ entry.url }}" data-nav-link>{{ entry.title }}</a>
+                <a class="{{ mobileClass }}" href="{{ entry.url }}" data-nav-link{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
             {% endfor %}
 
-            <button class="mt-2 rounded-xl border border-primary/20 px-3 py-3 text-left font-semibold text-primary transition-colors hover:bg-primary/8">
-                Submit a Proposal
-            </button>
+            {% if proposalUrl %}
+                <a class="mt-2 rounded-xl border border-primary/20 px-3 py-3 text-left font-semibold text-primary transition-colors hover:bg-primary/8" href="{{ proposalUrl }}" target="_blank" rel="noopener noreferrer">
+                    Submit a Proposal
+                </a>
+            {% else %}
+                <span class="mt-2 rounded-xl border border-primary/20 px-3 py-3 text-left font-semibold text-primary/80">
+                    Proposal Portal Coming Soon
+                </span>
+            {% endif %}
         </div>
     </div>
 </nav>
@@ -58,6 +69,7 @@
         const menu = document.getElementById('mobile-menu');
         const icon = toggle?.querySelector('.material-symbols-outlined');
         const mobileBreakpoint = window.matchMedia('(min-width: 768px)');
+        let lastFocusedElement = null;
 
         if (!nav || !toggle || !menu || !icon) {
             return;
@@ -68,6 +80,17 @@
             toggle.setAttribute('aria-expanded', String(isOpen));
             toggle.setAttribute('aria-label', isOpen ? 'Close site menu' : 'Open site menu');
             icon.textContent = isOpen ? 'close' : 'menu';
+
+            if (isOpen) {
+                lastFocusedElement = document.activeElement;
+                const firstLink = menu.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+                firstLink?.focus();
+                return;
+            }
+
+            if (lastFocusedElement === toggle) {
+                toggle.focus();
+            }
         };
 
         setMenuState(false);
