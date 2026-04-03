@@ -8,3 +8,4 @@ scratch.html
 package-lock.json
 # Lint cache files
 .eslintcache
+.codex
