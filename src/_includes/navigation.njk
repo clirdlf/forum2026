@@ -1,15 +1,27 @@
+{%- set navPages = collections.all | eleventyNavigation -%}
+
+
 <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl rounded-2xl bg-surface/80 backdrop-blur-md flex justify-between items-center px-8 py-4 z-50 shadow-[0_8px_32px_rgba(70,119,194,0.06)] border border-outline-variant/30">
-    <div class="font-headline font-black text-primary tracking-tighter text-xl" style="">
-        DLF Virtual Forum
+    <div class="font-headline font-black text-primary tracking-tighter text-xl">
+        {{ metadata.title }}
     </div>
-    <div class="hidden md:flex gap-8 items-center">
-        <a class="font-headline tracking-tight font-bold text-lg text-primary border-b-4 border-primary/40 pb-1" href="/" style="">Home</a>
+    <div id="pages" class="hidden md:flex gap-8 items-center">
+        {% for entry in navPages %}
+            {% set class = 'font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300' %}
+
+            {% if entry.url == page.url %}
+                {% set class = class + ' border-b-4 border-primary/40 pb-1 text-primary' %}
+            {% endif %}
+            <a class="{{ class }}" href="{{ entry.url }}">{{ entry.title }}</a>
+        {% endfor %}
+
+        {# <a class="font-headline tracking-tight font-bold text-lg text-primary border-b-4 border-primary/40 pb-1" href="/" style="">Home</a>
         <a class="font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="/call-for-proposals/" style="">CFP</a>
-        {# <a class="font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="#" style="">News</a>
+        <a class="font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="#" style="">News</a>
         <a class="font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="#" style="">Archive</a> #}
     </div>
     <div class="flex items-center gap-4">
-        <button class="hidden md:block text-primary font-semibold hover:opacity-80 transition-opacity" style="">Submit a Proposal</button>
+        <button class="hidden md:block text-primary font-semibold hover:opacity-80 transition-opacity">Submit a Proposal</button>
         {# <button class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold hover:scale-95 duration-200 ease-in-out" style="">Register</button> #}
     </div>
 </nav>
