@@ -1,0 +1,11 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+{%- set sitemap_url = [metadata.url, '/sitemap.xml'] | join  %}
+
+User-agent: *
+Disallow:
+
+Disallow: /build.txt'
+sitemap: {{ sitemap_url }}
