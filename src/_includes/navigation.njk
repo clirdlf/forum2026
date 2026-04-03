@@ -1,27 +1,106 @@
 {%- set navPages = collections.all | eleventyNavigation -%}
 
 
-<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl rounded-2xl bg-surface/80 backdrop-blur-md flex justify-between items-center px-8 py-4 z-50 shadow-[0_8px_32px_rgba(70,119,194,0.06)] border border-outline-variant/30">
-    <div class="font-headline font-black text-primary tracking-tighter text-xl">
-        {{ metadata.title }}
-    </div>
-    <div id="pages" class="hidden md:flex gap-8 items-center">
-        {% for entry in navPages %}
-            {% set class = 'font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300' %}
+<nav id="site-nav" class="fixed top-4 left-1/2 z-50 flex w-[95%] max-w-7xl -translate-x-1/2 flex-col rounded-2xl border border-outline-variant/30 bg-surface/80 px-5 py-3 shadow-[0_8px_32px_rgba(70,119,194,0.06)] backdrop-blur-md md:px-8 md:py-4">
+    <div class="flex items-center justify-between gap-4">
+        <div class="font-headline text-xl font-black tracking-tighter text-primary">
+            {{ metadata.title }}
+        </div>
 
-            {% if entry.url == page.url %}
-                {% set class = class + ' border-b-4 border-primary/40 pb-1 text-primary' %}
-            {% endif %}
-            <a class="{{ class }}" href="{{ entry.url }}">{{ entry.title }}</a>
-        {% endfor %}
+        <div class="hidden items-center gap-8 md:flex">
+            <div id="pages" class="flex items-center gap-8">
+                {% for entry in navPages %}
+                    {% set class = 'font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300' %}
 
-        {# <a class="font-headline tracking-tight font-bold text-lg text-primary border-b-4 border-primary/40 pb-1" href="/" style="">Home</a>
-        <a class="font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="/call-for-proposals/" style="">CFP</a>
-        <a class="font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="#" style="">News</a>
-        <a class="font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="#" style="">Archive</a> #}
+                    {% if entry.url == page.url %}
+                        {% set class = class + ' border-b-4 border-primary/40 pb-1 text-primary' %}
+                    {% endif %}
+                    <a class="{{ class }}" href="{{ entry.url }}">{{ entry.title }}</a>
+                {% endfor %}
+            </div>
+
+            <button class="text-primary font-semibold transition-opacity hover:opacity-80">Submit a Proposal</button>
+        </div>
+
+        <button
+            id="mobile-menu-toggle"
+            class="flex h-11 w-11 items-center justify-center rounded-xl border border-outline-variant/60 text-primary transition-colors hover:bg-primary/8 md:hidden"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Open site menu">
+            <span class="material-symbols-outlined text-[2rem]" aria-hidden="true">menu</span>
+        </button>
     </div>
-    <div class="flex items-center gap-4">
-        <button class="hidden md:block text-primary font-semibold hover:opacity-80 transition-opacity">Submit a Proposal</button>
-        {# <button class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold hover:scale-95 duration-200 ease-in-out" style="">Register</button> #}
+
+    <div id="mobile-menu" class="hidden border-t border-outline-variant/40 pt-4 mt-4 md:hidden">
+        <div class="flex flex-col gap-3">
+            {% for entry in navPages %}
+                {% set mobileClass = 'font-headline rounded-xl px-3 py-2 text-lg font-bold tracking-tight text-on-surface/80 transition-colors duration-300 hover:bg-primary/8 hover:text-primary' %}
+
+                {% if entry.url == page.url %}
+                    {% set mobileClass = mobileClass + ' bg-primary/10 text-primary' %}
+                {% endif %}
+                <a class="{{ mobileClass }}" href="{{ entry.url }}" data-nav-link>{{ entry.title }}</a>
+            {% endfor %}
+
+            <button class="mt-2 rounded-xl border border-primary/20 px-3 py-3 text-left font-semibold text-primary transition-colors hover:bg-primary/8">
+                Submit a Proposal
+            </button>
+        </div>
     </div>
 </nav>
+
+<script>
+    (() => {
+        const nav = document.getElementById('site-nav');
+        const toggle = document.getElementById('mobile-menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const icon = toggle?.querySelector('.material-symbols-outlined');
+        const mobileBreakpoint = window.matchMedia('(min-width: 768px)');
+
+        if (!nav || !toggle || !menu || !icon) {
+            return;
+        }
+
+        const setMenuState = (isOpen) => {
+            menu.classList.toggle('hidden', !isOpen);
+            toggle.setAttribute('aria-expanded', String(isOpen));
+            toggle.setAttribute('aria-label', isOpen ? 'Close site menu' : 'Open site menu');
+            icon.textContent = isOpen ? 'close' : 'menu';
+        };
+
+        setMenuState(false);
+
+        toggle.addEventListener('click', () => {
+            const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+            setMenuState(!isOpen);
+        });
+
+        menu.querySelectorAll('[data-nav-link]').forEach((link) => {
+            link.addEventListener('click', () => setMenuState(false));
+        });
+
+        document.addEventListener('click', (event) => {
+            if (toggle.getAttribute('aria-expanded') !== 'true') {
+                return;
+            }
+
+            if (!nav.contains(event.target)) {
+                setMenuState(false);
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                setMenuState(false);
+            }
+        });
+
+        mobileBreakpoint.addEventListener('change', (event) => {
+            if (event.matches) {
+                setMenuState(false);
+            }
+        });
+    })();
+</script>
