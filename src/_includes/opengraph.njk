@@ -1,0 +1,57 @@
+{% set seoTitle = (title + ' - ' + metadata.title) if title else metadata.title %}
+{% set seoDescription = description or metadata.description %}
+{% set canonicalUrl = metadata.url + page.url %}
+{% set seoImage = cover or '/static/dlf-forum-2026-logo.png' %}
+{% set seoImageUrl = (metadata.url + seoImage) if seoImage[0] == '/' else seoImage %}
+{% set isHomePage = page.url == '/' %}
+
+<link rel="canonical" href="{{ canonicalUrl }}"/>
+
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="{{ metadata.title }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="{{ seoTitle }}"/>
+<meta property="og:description" content="{{ seoDescription }}"/>
+<meta property="og:url" content="{{ canonicalUrl }}"/>
+<meta property="og:image" content="{{ seoImageUrl }}"/>
+<meta property="og:image:alt" content="{{ seoTitle }}"/>
+
+<meta name="twitter:card" content="{{ 'summary_large_image' if cover else 'summary' }}"/>
+<meta name="twitter:title" content="{{ seoTitle }}"/>
+<meta name="twitter:description" content="{{ seoDescription }}"/>
+<meta name="twitter:image" content="{{ seoImageUrl }}"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": {{ (metadata.url + '/#organization') | dump | safe }},
+      "name": {{ metadata.title | dump | safe }},
+      "url": {{ metadata.url | dump | safe }},
+      "logo": {
+        "@type": "ImageObject",
+        "url": {{ (metadata.url + '/static/dlf-forum-2026-logo.png') | dump | safe }}
+      }
+    },
+    {
+      "@type": {{ ('WebSite' if isHomePage else 'WebPage') | dump | safe }},
+      "@id": {{ (canonicalUrl + '#webpage') | dump | safe }},
+      "url": {{ canonicalUrl | dump | safe }},
+      "name": {{ seoTitle | dump | safe }},
+      "description": {{ seoDescription | dump | safe }},
+      "isPartOf": {
+        "@id": {{ metadata.url | dump | safe }}
+      },
+      "publisher": {
+        "@id": {{ (metadata.url + '/#organization') | dump | safe }}
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": {{ seoImageUrl | dump | safe }}
+      }
+    }
+  ]
+}
+</script>
