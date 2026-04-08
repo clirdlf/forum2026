@@ -6,71 +6,135 @@ eleventyNavigation:
     order: 1
 ---
 
-<section class="relative pt-40 pb-24 px-8 overflow-hidden">
+<section id="welcome" class="relative pt-40 pb-24 px-8 overflow-hidden">
     <div class="max-w-7xl mx-auto editorial-grid">
         <div class="col-span-12 lg:col-span-7 z-10">
-            <h1 class="font-headline font-extrabold text-[3.5rem] leading-[1.1] text-on-surface tracking-tight mb-8" style="">
+            <h1 class="font-headline font-extrabold text-[3.5rem] leading-[1.1] text-on-surface tracking-tight mb-8">
                     Welcome to the <br>
-                <span class="text-primary italic" style="">DLF Virtual Forum</span>
+                <span class="text-primary italic">DLF Virtual Forum</span>
             </h1>
-            <p class="text-xl text-on-surface-variant max-w-xl leading-relaxed mb-10" style="">
-                    A digital gathering place for GLAM professionals to share, sustain, and innovate. Connecting library, archive, and museum curators through intentional community building.
+            <p class="text-xl text-on-surface-variant max-w-xl leading-relaxed mb-10">
+                    The DLF Forum is a dynamic gathering place for GLAM professionals to share ideas, sustain critical work, and spark innovation. It connects library, archives, and museum practitioners, as well as other knowledge workers, through <strong>intentional community building</strong> and <strong>collaborative exchange</strong>.
                 </p>
             <div class="flex flex-wrap gap-4">
-                {# <button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all" style="">Register Now</button> #}
-                {# <button class="bg-surface-container-high text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-container-highest transition-colors" style="">Explore Program</button> #}
+                <a href="#" class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all">Register</a>
+                <a class="bg-surface-container-high text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-container-highest transition-colors">Explore Program</a>
             </div>
         </div>
         <div class="col-span-12 lg:col-span-5 relative mt-12 lg:mt-0">
             <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl rotate-3 bg-surface-container">
-                <img alt="Library and museum professionals collaborating at a shared digital workspace with large screens and archival materials." class="w-full h-full object-cover" decoding="async" fetchpriority="high" height="1400" loading="eager" src="{{ '/static/samantha-borges-ax3lbQfdXP0-unsplash.webp' }}" style="" width="933">
+                <img alt="Library and museum professionals collaborating at a shared digital workspace with large screens and archival materials." class="w-full h-full object-cover" decoding="async" fetchpriority="high" height="1400" loading="eager" src="{{ '/static/samantha-borges-ax3lbQfdXP0-unsplash.webp' }}" width="933">
             </div>
             <div class="absolute -bottom-8 -left-8 w-48 h-48 rounded-full bg-primary/10 opacity-60 blur-3xl -z-10"></div>
         </div>
     </div>
 </section>
-<section class="py-24 bg-surface-container-low">
+<section id="core-values" class="py-24 bg-surface-container-low">
     <div class="max-w-7xl mx-auto px-8">
-        <div class="mb-16">
-            <span class="font-label text-primary font-bold tracking-widest text-xs uppercase" style="">Core Values</span>
-            <h2 class="font-headline font-bold text-4xl text-on-surface mt-2" style="">The DLF Forum</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="md:col-span-2 bg-surface-container-lowest p-12 rounded-[2rem] flex flex-col justify-between shadow-sm border border-outline-variant/10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <div class="lg:col-span-7 bg-surface-container-lowest p-10 md:p-12 rounded-[2rem] shadow-sm border border-outline-variant/10 flex flex-col justify-between">
                 <div>
-                    <div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary" aria-hidden="true" style="">groups</span>
+                    <span class="font-label text-primary font-bold tracking-widest text-xs uppercase">Join the DLF Forum</span>
+                    <h2 class="font-headline font-bold text-4xl md:text-5xl text-on-surface mt-3 max-w-3xl leading-tight">
+                        Step into the gathering where the DLF community meets, shares, and shapes what comes next.
+                    </h2>
+                    <p class="text-lg text-on-surface-variant leading-relaxed mt-6 max-w-3xl">
+                        <a class="underline" href="https://www.diglib.org/about/dlf/" target="_blank" rel="noopener noreferrer">DLF</a> programs stretch across the full year, but the Forum is our signature event: a place to conduct community business, exchange professional practice, and help assess DLF programs with direct community input.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mt-8">
+                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-bold text-sm">
+                            <span class="material-symbols-outlined text-base" aria-hidden="true">diversity_3</span>
+                            Libraries, archives, and museums
+                        </span>
+                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold text-sm">
+                            <span class="material-symbols-outlined text-base" aria-hidden="true">public</span>
+                            Academic, nonprofit, and government organizations
+                        </span>
+                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-bold text-sm">
+                            <span class="material-symbols-outlined text-base" aria-hidden="true">build</span>
+                            Librarians, technologists, curators, and service providers
+                        </span>
                     </div>
-                    <h3 class="font-headline font-bold text-3xl mb-4" style="">Radical Inclusion</h3>
-                    <p class="text-on-surface-variant text-lg leading-relaxed max-w-2xl" style="">
-                        We prioritize low-bandwidth accessibility and asynchronous participation to ensure our community  can connect regardless of time zone or infrastructure.
+                </div>
+                <div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
+                    {% if metadata.registration_url %}
+                    <a href="{{ metadata.registration_url }}" class="button-primary">Register for the Forum</a>
+                    {% endif %}
+                    {% if metadata.program_url %}
+                    <a href="{{ metadata.program_url }}" class="button-secondary">Explore the program</a>
+                    {% endif %}
+                    <a href="https://www.diglib.org/about/code-of-conduct/" target="_blank" rel="noopener noreferrer" class="button-ghost">
+                        Read the Code of Conduct
+                        <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_outward</span>
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-5 relative overflow-hidden rounded-[2rem] bg-primary text-on-primary min-h-[28rem]">
+                <img
+                    alt="Digital library and museum practitioners collaborating around a shared table."
+                    class="absolute inset-0 h-full w-full object-cover mix-blend-multiply opacity-35"
+                    decoding="async"
+                    loading="lazy"
+                    src="{{ '/static/collaborative-workspace.png' }}">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-container/90 to-info/80"></div>
+                <div class="relative p-10 md:p-12 h-full flex flex-col justify-between">
+                    <div>
+                        <span class="font-label font-bold tracking-widest text-xs uppercase text-on-primary/80">Why People Show Up</span>
+                        <h3 class="font-headline font-bold text-3xl mt-3 max-w-sm">The Forum works as three spaces at once.</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="rounded-[1.5rem] bg-on-primary/12 backdrop-blur-sm p-5 border border-on-primary/15">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+                                <p class="font-headline font-bold text-xl">A Meeting Place</p>
+                            </div>
+                            <p class="text-on-primary/80">Working groups and community members gather to conduct business and present work in progress.</p>
+                        </div>
+                        <div class="rounded-[1.5rem] bg-on-primary/12 backdrop-blur-sm p-5 border border-on-primary/15">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined" aria-hidden="true">storefront</span>
+                                <p class="font-headline font-bold text-xl">A Marketplace</p>
+                            </div>
+                            <p class="text-on-primary/80">Practitioners trade practical knowledge, field-tested ideas, and professional experience.</p>
+                        </div>
+                        <div class="rounded-[1.5rem] bg-on-primary/12 backdrop-blur-sm p-5 border border-on-primary/15">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined" aria-hidden="true">forum</span>
+                                <p class="font-headline font-bold text-xl">A Congress</p>
+                            </div>
+                            <p class="text-on-primary/80">The wider community reviews DLF programs and helps assess what should happen next.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-secondary-fixed p-8 rounded-[1.75rem]">
+                    <div class="w-12 h-12 rounded-full bg-secondary-fixed-dim flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-on-secondary-fixed" aria-hidden="true">badge</span>
+                    </div>
+                    <h3 class="font-headline font-bold text-2xl text-on-secondary-fixed mb-3">A broad practitioner mix</h3>
+                    <p class="text-on-secondary-fixed-variant leading-relaxed">
+                        The Forum welcomes librarians, developers, technologists, curators, project managers, administrators, and more.
                     </p>
                 </div>
-                <div class="mt-8 flex items-center gap-4 text-primary font-bold">
-                    <span class="" style="">Read our community pact</span>
-                    <span class="material-symbols-outlined" aria-hidden="true" style="">arrow_forward</span>
-                </div>
-            </div>
-            <div class="bg-primary p-12 rounded-[2rem] text-on-primary">
-                <div class="w-12 h-12 rounded-full bg-on-primary/20 flex items-center justify-center mb-6">
-                    <span class="material-symbols-outlined text-on-primary" aria-hidden="true" style="">auto_awesome</span>
-                </div>
-                <h3 class="font-headline font-bold text-2xl mb-4" style="">Open Innovation</h3>
-                <p class="opacity-80" style="">
-                        Fostering open-source solutions for digital preservation and metadata standards across the cultural heritage sector.
+                <div class="bg-tertiary-fixed p-8 rounded-[1.75rem]">
+                    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-on-tertiary-fixed" aria-hidden="true">language</span>
+                    </div>
+                    <h3 class="font-headline font-bold text-2xl text-on-tertiary-fixed mb-3">A genuinely international room</h3>
+                    <p class="text-on-tertiary-fixed-variant leading-relaxed">
+                        Participants come from academic, nonprofit, and government organizations around the world.
                     </p>
-            </div>
-            <div class="bg-secondary-fixed p-10 rounded-[2rem]">
-                <h3 class="font-headline font-bold text-xl mb-3 text-on-secondary-fixed" style="">Global Reach</h3>
-                <p class="text-on-secondary-fixed-variant" style="">Over 40 countries represented in our digital forum sessions.</p>
-            </div>
-            <div class="bg-tertiary-fixed p-10 rounded-[2rem]">
-                <h3 class="font-headline font-bold text-xl mb-3 text-on-tertiary-fixed" style="">Free Access</h3>
-                <p class="text-on-tertiary-fixed-variant" style="">Subsidized registrations for independent scholars and community members.</p>
-            </div>
-            <div class="bg-surface-container-highest p-10 rounded-[2rem]">
-                <h3 class="font-headline font-bold text-xl mb-3 text-on-surface" style="">Curated Tracks</h3>
-                <p class="text-on-surface-variant" style="">Focus areas on Ethics, Sustainability, and Public Access.</p>
+                </div>
+                <div class="bg-surface-container-highest p-8 rounded-[1.75rem] border border-outline-variant/15">
+                    <div class="w-12 h-12 rounded-full bg-accent-soft flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-accent" aria-hidden="true">shield</span>
+                    </div>
+                    <h3 class="font-headline font-bold text-2xl text-on-surface mb-3">An inclusive space by design</h3>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Every participant is expected to uphold the DLF Code of Conduct and help maintain a harassment-free environment.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
