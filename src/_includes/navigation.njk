@@ -4,8 +4,12 @@
 
 <nav id="site-nav" aria-label="Primary" class="fixed top-4 left-1/2 z-50 flex w-[95%] max-w-7xl -translate-x-1/2 flex-col rounded-2xl border border-outline-variant/30 bg-surface/80 px-5 py-3 shadow-[0_8px_32px_rgba(70,119,194,0.06)] backdrop-blur-md md:px-8 md:py-4">
     <div class="flex items-center justify-between gap-4">
-        <a href="/" class="font-headline text-xl font-black tracking-tighter text-on-primary-fixed-variant">
-            {{ metadata.title }}
+        <a href="/" class="flex items-center text-on-primary-fixed-variant" aria-label="{{ metadata.title }}">
+            <img
+                src="{{ '/static/dlf-forum-2026-logo.svg' }}"
+                {# src="{{ '/static/DLF-forum-2026-rgb.svg' }}" #}
+                alt="{{ metadata.title }}"
+                class="h-10 w-auto md:h-12">
         </a>
 
         <div class="hidden items-center gap-8 md:flex">
