@@ -17,8 +17,12 @@ eleventyNavigation:
                     The DLF Forum is a dynamic gathering place for GLAM professionals to share ideas, sustain critical work, and spark innovation. It connects library, archives, and museum practitioners, as well as other knowledge workers, through <strong>intentional community building</strong> and <strong>collaborative exchange</strong>.
                 </p>
             <div class="flex flex-wrap gap-4">
-                <a href="#" class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all">Register</a>
-                <a class="bg-surface-container-high text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-container-highest transition-colors">Explore Program</a>
+                {% if metadata.registration_url %}
+                    <a href="{{ metadata.registration_url }}" class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all">Register</a>
+                {% endif %}
+                {% if metadata.program_url %}
+                    <a href="{{ metadata.program_url }}" class="bg-surface-container-high text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-container-highest transition-colors">Explore Program</a>
+                {% endif %}
             </div>
         </div>
         <div class="col-span-12 lg:col-span-5 relative mt-12 lg:mt-0">
