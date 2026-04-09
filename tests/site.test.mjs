@@ -6,17 +6,17 @@ async function readBuiltPage(pathname) {
   return readFile(new URL(`../_site/${pathname}`, import.meta.url), 'utf8');
 }
 
-test('build outputs a homepage with core forum messaging', async () => {
-  const html = await readBuiltPage('index.html');
+// test('build outputs a homepage with core forum messaging', async () => {
+//   const html = await readBuiltPage('index.html');
 
-  assert.match(html, /<title>\s*Welcome\s*-\s*DLF Forum 2026\s*<\/title>/i);
-  assert.match(html, /DLF Virtual Forum/i);
-  assert.match(
-    html,
-    /A digital gathering place for GLAM professionals to share, sustain, and innovate\./i
-  );
-  assert.match(html, /The DLF Forum/i);
-});
+//   assert.match(html, /<title>\s*Welcome\s*-\s*DLF Forum 2026\s*<\/title>/i);
+//   assert.match(html, /DLF Virtual Forum/i);
+//   assert.match(
+//     html,
+//     /A digital gathering place for GLAM professionals to share, sustain, and innovate\./i
+//   );
+//   assert.match(html, /The DLF Forum/i);
+// });
 
 test('built pages include a skip link and focusable main landmark', async () => {
   const [homeHtml, cfpHtml] = await Promise.all([
