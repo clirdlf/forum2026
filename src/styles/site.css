@@ -16,16 +16,16 @@
   --color-on-tertiary: #fff;
   --color-surface: #fdfaf5;
   --color-secondary-fixed-dim: #d9cdb8;
-  --color-primary-container: #4677c2;
+  --color-primary-container: #335f9f;
   --color-tertiary-container: #e9e1d1;
   --color-on-surface-variant: #6b6255;
-  --color-surface-tint: #4677c2;
+  --color-surface-tint: #335f9f;
   --color-tertiary: #7d7465;
   --color-on-secondary: #fff;
   --color-surface-bright: #fffdfa;
   --color-secondary-container: #f0e6d2;
   --color-outline-variant: #d9cfbf;
-  --color-primary: #4677c2;
+  --color-primary: #335f9f;
   --color-on-secondary-container: #241d12;
   --color-outline: #8b8071;
   --color-on-primary-container: #fff;
@@ -177,7 +177,7 @@
 }
 
 .button-primary {
-  background: linear-gradient(135deg, var(--color-primary), #6a96db);
+  background: linear-gradient(135deg, var(--color-primary), #3b68ac);
   color: var(--color-on-primary);
   box-shadow: var(--shadow-lifted);
 }
