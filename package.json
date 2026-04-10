@@ -18,7 +18,21 @@
     "lint:css": "stylelint \"src/**/*.{css,scss}\"",
     "lint:html": "html-validate \"src/**/*.{html,njk}\"",
     "lint": "pnpm lint:js && pnpm lint:css",
-    "test": "pnpm build && node --test tests/site.test.mjs"
+    "test": "pnpm build && node --test tests/site.test.mjs",
+    "prepare": "husky install"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm dlx lint-staged",
+    "pre-push": "npm run format",
+
+    // All unused hooks will be removed automatically by default
+    // but you can use the `preserveUnused` option like following to prevent this behavior
+
+    // if you'd prefer preserve all unused hooks
+    "preserveUnused": true,
+
+    // if you'd prefer preserve specific unused hooks
+    "preserveUnused": ["commit-msg"]
   },
   "keywords": [
     "eleventy",
@@ -55,6 +69,9 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
+    "husky": "^8.0.0",
+    "pretty-quick": "^4.2.2",
+    "simple-git-hooks": "^2.13.1",
     "stylelint-config-standard": "^39.0.1",
     "stylelint-config-tailwindcss": "^1.0.1"
   }
