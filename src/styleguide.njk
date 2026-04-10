@@ -1,150 +1,151 @@
 ---
 title: Styleguide
 layout: base.njk
-description: Design system reference for the DLF Forum 2026 site.
+description: Current style and component reference for the DLF Forum 2026 site.
 permalink: /styleguide/
+eleventyExcludeFromCollections: true
 ---
 
 {% set colorTokens = [
-    { name: 'Primary', token: '--color-primary', hex: '#4677C2', text: 'var(--color-on-primary)' },
-    { name: 'Primary Container', token: '--color-primary-container', hex: '#4677C2', text: 'var(--color-on-primary-container)' },
-    { name: 'Accent', token: '--color-accent', hex: '#BF5F36', text: 'var(--color-on-primary)' },
-    { name: 'Secondary', token: '--color-secondary', hex: '#7C7261', text: 'var(--color-on-secondary)' },
-    { name: 'Surface', token: '--color-surface', hex: '#FDFAF5', text: 'var(--color-on-surface)' },
-    { name: 'Surface High', token: '--color-surface-container-high', hex: '#EBE2D0', text: 'var(--color-on-surface)' },
-    { name: 'Outline', token: '--color-outline', hex: '#8B8071', text: '#FFFFFF' },
-    { name: 'Info', token: '--color-info', hex: '#2F5D8A', text: '#FFFFFF' },
-    { name: 'Success', token: '--color-success', hex: '#2F6A4F', text: '#FFFFFF' },
-    { name: 'Error', token: '--color-error', hex: '#BA1A1A', text: '#FFFFFF' }
+    { name: 'Primary', token: '--color-primary', use: 'Primary actions, active navigation, editorial emphasis' },
+    { name: 'Primary Container', token: '--color-primary-container', use: 'Large blue feature areas and gradients' },
+    { name: 'Accent', token: '--color-accent', use: 'Small highlights, icons, and warm emphasis' },
+    { name: 'Surface', token: '--color-surface', use: 'Page background and navigation glass' },
+    { name: 'Surface Low', token: '--color-surface-container-low', use: 'Section bands and quiet contrast' },
+    { name: 'Surface Highest', token: '--color-surface-container-highest', use: 'Dense cards and elevated content' },
+    { name: 'Outline Variant', token: '--color-outline-variant', use: 'Soft borders, dividers, and timelines' },
+    { name: 'Info', token: '--color-info', use: 'Informational callouts and support states' },
+    { name: 'Success', token: '--color-success', use: 'Confirmed and completed states' },
+    { name: 'Error', token: '--color-error', use: 'Errors and destructive warnings' }
 ] %}
 
-{% set fontTokens = [
-    { label: 'Headline', family: 'Manrope', token: '--font-headline', specimen: 'Community. Preservation. Momentum.' },
-    { label: 'Body', family: 'Public Sans', token: '--font-body', specimen: 'A practical sans for editorial copy, navigation, and dense interface text.' },
-    { label: 'Mono', family: 'IBM Plex Mono', token: '--font-mono', specimen: 'TOKEN / STATUS / 2026-04-06 / READY' }
+{% set typeScale = [
+    { label: 'Hero', class: 'font-headline text-5xl md:text-7xl font-extrabold leading-none tracking-tight', text: 'Welcome to the DLF Virtual Forum' },
+    { label: 'Section', class: 'section-title', text: 'Reusable page rhythm' },
+    { label: 'Card Heading', class: 'font-headline text-2xl font-extrabold leading-tight', text: 'A broad practitioner mix' },
+    { label: 'Body', class: 'text-lg leading-relaxed text-on-surface-variant', text: 'Forum pages use generous line height, clear hierarchy, and warm surface contrast for long-form guidance.' },
+    { label: 'Label', class: 'eyebrow', text: 'DLF Forum 2026' },
+    { label: 'Mono', class: 'font-mono text-sm font-semibold text-on-surface-variant', text: 'Phase 01 / Oct 14-15' }
 ] %}
 
-<div class="styleguide-shell pt-36 pb-24">
-    <section class="px-6 sm:px-8">
-        <div class="mx-auto max-w-7xl">
-            <div class="surface-card overflow-hidden p-8 sm:p-12 lg:p-16">
-                <div class="max-w-3xl">
-                    <p class="eyebrow mb-4">Design System</p>
-                    <h1 class="font-headline text-5xl font-extrabold leading-none tracking-[-0.05em] text-on-surface sm:text-6xl lg:text-[5rem]">
-                        Styleguide for a warm editorial interface.
-                    </h1>
-                    <p class="mt-6 max-w-2xl text-lg leading-8 text-on-surface-variant sm:text-xl">
-                        This system extends the current DLF Forum site with clearer component patterns, expanded semantic colors, and a typography stack that can support both storytelling and interface detail.
-                    </p>
+{% set timeline = [
+    { phase: 'Phase 01', title: 'Submissions Open', date: 'April 14, 2026', active: true },
+    { phase: 'Phase 02', title: 'CFP Deadline', date: 'May 11, 2026', active: false },
+    { phase: 'Phase 03', title: 'Forum Dates', date: 'October 14-15, 2026', active: false }
+] %}
+
+<div class="styleguide-shell">
+    <section class="relative overflow-hidden px-8 pt-40 pb-24">
+        <div class="mx-auto max-w-7xl editorial-grid items-center">
+            <div class="col-span-12 z-10 lg:col-span-7">
+                <p class="eyebrow">Design Reference</p>
+                <h1 class="mt-4 font-headline text-5xl font-extrabold leading-none tracking-tight text-on-surface md:text-7xl">
+                    Current style and flow.
+                </h1>
+                <p class="mt-6 max-w-2xl text-xl leading-relaxed text-on-surface-variant">
+                    The site uses editorial spacing, warm paper surfaces, rounded content blocks, direct calls to action, and compact utility patterns for navigation, resources, and event details.
+                </p>
+                <div class="mt-10 flex flex-wrap gap-4">
+                    <a href="#components" class="button-primary">View components</a>
+                    <a href="#flow" class="button-secondary">Review page flow</a>
                 </div>
+            </div>
 
-                <div class="mt-10 grid gap-4 md:grid-cols-3">
-                    <div class="rounded-[1.5rem] bg-primary px-5 py-6 text-on-primary shadow-[var(--shadow-lifted)]">
-                        <p class="font-label text-xs font-bold uppercase tracking-[0.18em] text-on-primary/70">Voice</p>
-                        <p class="mt-3 font-headline text-2xl font-extrabold">Confident, accessible, modern.</p>
-                    </div>
-                    <div class="rounded-[1.5rem] bg-accent-soft px-5 py-6 text-[#5a2d18]">
-                        <p class="font-label text-xs font-bold uppercase tracking-[0.18em] text-[#8a4729]">Palette</p>
-                        <p class="mt-3 font-headline text-2xl font-extrabold">Soft neutrals with deliberate signal colors.</p>
-                    </div>
-                    <div class="rounded-[1.5rem] bg-surface-container px-5 py-6 text-on-surface">
-                        <p class="font-label text-xs font-bold uppercase tracking-[0.18em] text-on-surface-variant">System</p>
-                        <p class="mt-3 font-headline text-2xl font-extrabold">Reusable patterns for content and interface states.</p>
+            <div class="col-span-12 mt-12 lg:col-span-5 lg:mt-0">
+                <div class="relative overflow-hidden rounded-4xl bg-primary text-on-primary shadow-2xl">
+                    <div class="absolute inset-0 bg-linear-to-br from-primary via-primary-container/90 to-info/80"></div>
+                    <div class="relative p-10 md:p-12">
+                        <p class="font-label text-xs font-bold uppercase tracking-widest text-on-primary/90">System Snapshot</p>
+                        <h2 class="mt-3 font-headline text-3xl font-bold leading-tight">
+                            Build pages as clear editorial sections with focused action moments.
+                        </h2>
+                        <div class="mt-8 space-y-4">
+                            <div class="rounded-3xl border border-on-primary/15 bg-on-primary/12 p-5 backdrop-blur-sm">
+                                <p class="font-headline text-xl font-bold">Hero</p>
+                                <p class="mt-1 text-on-primary">Set context quickly, then offer the next step.</p>
+                            </div>
+                            <div class="rounded-3xl border border-on-primary/15 bg-on-primary/12 p-5 backdrop-blur-sm">
+                                <p class="font-headline text-xl font-bold">Content Bands</p>
+                                <p class="mt-1 text-on-primary">Alternate open sections and soft surface backgrounds.</p>
+                            </div>
+                            <div class="rounded-3xl border border-on-primary/15 bg-on-primary/12 p-5 backdrop-blur-sm">
+                                <p class="font-headline text-xl font-bold">Cards</p>
+                                <p class="mt-1 text-on-primary">Use cards for repeated objects, feature summaries, and resource links.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="mt-20 px-6 sm:px-8">
-        <div class="mx-auto max-w-7xl">
-            <div class="mb-8">
-                <p class="eyebrow">Color</p>
-                <h2 class="section-title mt-3">Core palette and semantic states</h2>
-                <p class="mt-4 max-w-3xl text-lg leading-8 text-on-surface-variant">
-                    The palette keeps the site grounded in warm paper tones while adding stronger accents for calls to action, informational messaging, and status feedback.
+    <section id="flow" class="border-y border-outline-variant/30 bg-surface-container-low">
+        <div class="mx-auto max-w-7xl px-8 py-20">
+            <div class="max-w-3xl">
+                <p class="eyebrow">Page Flow</p>
+                <h2 class="mt-3 section-title">The current rhythm</h2>
+                <p class="mt-5 text-lg leading-relaxed text-on-surface-variant">
+                    Start with a concise hero, move into a high-context feature block, use cards for scannable choices, and close with a direct action or next step.
                 </p>
             </div>
 
-            <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-5">
+            <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <article class="surface-card p-8">
+                    <span class="font-mono text-sm font-semibold text-on-surface-variant">01</span>
+                    <h3 class="mt-4 font-headline text-2xl font-extrabold text-on-surface">Hero</h3>
+                    <p class="mt-3 leading-relaxed text-on-surface-variant">Large headline, short supporting copy, and one or two clear paths forward.</p>
+                </article>
+                <article class="surface-card p-8">
+                    <span class="font-mono text-sm font-semibold text-on-surface-variant">02</span>
+                    <h3 class="mt-4 font-headline text-2xl font-extrabold text-on-surface">Context</h3>
+                    <p class="mt-3 leading-relaxed text-on-surface-variant">Use a broad feature card or split editorial block to explain the page purpose.</p>
+                </article>
+                <article class="surface-card p-8">
+                    <span class="font-mono text-sm font-semibold text-on-surface-variant">03</span>
+                    <h3 class="mt-4 font-headline text-2xl font-extrabold text-on-surface">Choices</h3>
+                    <p class="mt-3 leading-relaxed text-on-surface-variant">Cards, badges, page anchors, and timelines make longer pages easier to scan.</p>
+                </article>
+                <article class="surface-card p-8">
+                    <span class="font-mono text-sm font-semibold text-on-surface-variant">04</span>
+                    <h3 class="mt-4 font-headline text-2xl font-extrabold text-on-surface">Action</h3>
+                    <p class="mt-3 leading-relaxed text-on-surface-variant">Close sections with direct buttons or resource links instead of broad promotional copy.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokens" class="px-8 py-20">
+        <div class="mx-auto max-w-7xl">
+            <div class="max-w-3xl">
+                <p class="eyebrow">Tokens</p>
+                <h2 class="mt-3 section-title">Color and type</h2>
+                <p class="mt-5 text-lg leading-relaxed text-on-surface-variant">
+                    Tokens come from the Tailwind theme in <code class="font-mono text-sm">site.css</code>. Prefer these utilities over one-off colors.
+                </p>
+            </div>
+
+            <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
                 {% for swatch in colorTokens %}
-                    <article class="surface-card overflow-hidden">
-                        <div class="h-36" style="background: var({{ swatch.token }}); color: {{ swatch.text }};">
-                            <div class="flex h-full items-end p-5">
-                                <span class="rounded-full bg-black/10 px-3 py-1 font-label text-xs font-bold uppercase tracking-[0.16em]">Swatch</span>
-                            </div>
-                        </div>
+                    <article class="overflow-hidden rounded-3xl border border-outline-variant/30 bg-surface-container-lowest shadow-(--shadow-card)">
+                        <div class="h-28" style="background: var({{ swatch.token }});"></div>
                         <div class="p-5">
-                            <h3 class="font-headline text-2xl font-extrabold text-on-surface">{{ swatch.name }}</h3>
-                            <p class="mt-2 font-mono text-sm text-on-surface-variant">{{ swatch.token }}</p>
-                            <p class="mt-1 font-mono text-sm text-on-surface-variant">{{ swatch.hex }}</p>
+                            <h3 class="font-headline text-xl font-extrabold text-on-surface">{{ swatch.name }}</h3>
+                            <p class="mt-2 font-mono text-xs font-semibold text-on-surface-variant">{{ swatch.token }}</p>
+                            <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">{{ swatch.use }}</p>
                         </div>
                     </article>
                 {% endfor %}
             </div>
 
-            <div class="showcase-grid mt-8">
-                <div class="surface-card p-8">
-                    <h3 class="font-headline text-3xl font-extrabold text-on-surface">Usage notes</h3>
-                    <ul class="mt-5 space-y-3 text-lg leading-8 text-on-surface-variant">
-                        <li><strong class="text-on-surface">Primary blue</strong> is for high-priority actions, active states, and major navigation emphasis.</li>
-                        <li><strong class="text-on-surface">Accent clay</strong> is reserved for highlights, badges, and editorial moments where the interface needs warmth.</li>
-                        <li><strong class="text-on-surface">Soft semantic colors</strong> support alerts and status messaging without overpowering page content.</li>
-                    </ul>
-                </div>
-                <div class="surface-card p-8">
-                    <h3 class="font-headline text-3xl font-extrabold text-on-surface">Token summary</h3>
-                    <div class="mt-5 grid gap-4 sm:grid-cols-2">
-                        <div class="rounded-[1.25rem] bg-surface-container-low p-4">
-                            <p class="font-label text-xs font-bold uppercase tracking-[0.18em] text-on-surface-variant">Backgrounds</p>
-                            <p class="mt-2 font-mono text-sm text-on-surface">surface, surface-container, surface-container-high</p>
-                        </div>
-                        <div class="rounded-[1.25rem] bg-surface-container-low p-4">
-                            <p class="font-label text-xs font-bold uppercase tracking-[0.18em] text-on-surface-variant">Action</p>
-                            <p class="mt-2 font-mono text-sm text-on-surface">primary, accent, on-primary</p>
-                        </div>
-                        <div class="rounded-[1.25rem] bg-info-soft p-4">
-                            <p class="font-label text-xs font-bold uppercase tracking-[0.18em] text-[#244766]">Messaging</p>
-                            <p class="mt-2 font-mono text-sm text-[#153958]">info, success, error</p>
-                        </div>
-                        <div class="rounded-[1.25rem] bg-accent-soft p-4">
-                            <p class="font-label text-xs font-bold uppercase tracking-[0.18em] text-[#8a4729]">Borders</p>
-                            <p class="mt-2 font-mono text-sm text-[#5a2d18]">outline, outline-variant</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="mt-20 px-6 sm:px-8">
-        <div class="mx-auto max-w-7xl">
-            <div class="mb-8">
-                <p class="eyebrow">Typography</p>
-                <h2 class="section-title mt-3">Type styles and font names</h2>
-                <p class="mt-4 max-w-3xl text-lg leading-8 text-on-surface-variant">
-                    The system uses one expressive display family, one practical UI and body family, and one mono face for metadata, labels, and implementation references.
-                </p>
-            </div>
-
-            <div class="space-y-6">
-                {% for font in fontTokens %}
-                    <article class="surface-card p-8 sm:p-10">
-                        <div class="grid gap-6 lg:grid-cols-[16rem_minmax(0,1fr)] lg:items-start">
+            <div class="mt-12 space-y-5">
+                {% for type in typeScale %}
+                    <article class="surface-card p-6 md:p-8">
+                        <div class="grid gap-5 md:grid-cols-[12rem_minmax(0,1fr)] md:items-center">
                             <div>
-                                <p class="eyebrow">{{ font.label }}</p>
-                                <h3 class="mt-3 font-headline text-3xl font-extrabold text-on-surface">{{ font.family }}</h3>
-                                <p class="mt-2 font-mono text-sm text-on-surface-variant">{{ font.token }}</p>
+                                <p class="font-label text-xs font-bold uppercase tracking-widest text-primary">{{ type.label }}</p>
+                                <p class="mt-2 font-mono text-xs text-on-surface-variant">{{ type.class }}</p>
                             </div>
-                            <div>
-                                {% if font.label == 'Headline' %}
-                                    <p class="font-headline text-[clamp(2.5rem,5vw,4.5rem)] font-extrabold leading-[0.95] tracking-[-0.06em] text-on-surface">{{ font.specimen }}</p>
-                                {% elif font.label == 'Body' %}
-                                    <p class="font-body text-xl leading-9 text-on-surface-variant">{{ font.specimen }}</p>
-                                {% else %}
-                                    <p class="font-mono text-xl leading-8 text-on-surface">{{ font.specimen }}</p>
-                                {% endif %}
-                            </div>
+                            <p class="{{ type.class }}">{{ type.text }}</p>
                         </div>
                     </article>
                 {% endfor %}
@@ -152,46 +153,73 @@ permalink: /styleguide/
         </div>
     </section>
 
-    <section class="mt-20 px-6 sm:px-8">
-        <div class="mx-auto max-w-7xl">
-            <div class="mb-8">
+    <section id="components" class="border-y border-outline-variant/30 bg-surface-container-low">
+        <div class="mx-auto max-w-7xl px-8 py-20">
+            <div class="max-w-3xl">
                 <p class="eyebrow">Components</p>
-                <h2 class="section-title mt-3">Reusable style components</h2>
-                <p class="mt-4 max-w-3xl text-lg leading-8 text-on-surface-variant">
-                    These examples establish a consistent visual language for actions, content blocks, forms, and status messages across future pages.
+                <h2 class="mt-3 section-title">Current reusable patterns</h2>
+                <p class="mt-5 text-lg leading-relaxed text-on-surface-variant">
+                    These examples match the active site language: pill buttons, high-contrast feature panels, soft cards, resource links, form fields, and event timelines.
                 </p>
             </div>
 
-            <div class="showcase-grid">
+            <div class="mt-10 showcase-grid">
                 <article class="surface-card p-8">
                     <p class="eyebrow">Actions</p>
-                    <h3 class="mt-3 font-headline text-3xl font-extrabold text-on-surface">Buttons and links</h3>
+                    <h3 class="mt-3 font-headline text-3xl font-extrabold text-on-surface">Buttons and inline links</h3>
                     <div class="mt-6 flex flex-wrap gap-4">
-                        <a href="#0" class="button-primary">Primary button</a>
-                        <a href="#0" class="button-secondary">Secondary button</a>
-                        <a href="#0" class="button-ghost">Ghost button</a>
+                        <a href="#0" class="button-primary">Register for the Forum</a>
+                        <a href="#0" class="button-secondary">Explore the program</a>
+                        <a href="#0" class="button-ghost">
+                            Read the Code of Conduct
+                            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_outward</span>
+                        </a>
                     </div>
-                    <p class="mt-6 text-lg leading-8 text-on-surface-variant">
-                        Use the <a href="#0" class="text-link">text link treatment</a> for inline pathways inside editorial copy.
+                    <p class="mt-6 text-lg leading-relaxed text-on-surface-variant">
+                        Use <a href="#0" class="text-link">inline links</a> when the action belongs inside editorial copy.
                     </p>
                 </article>
 
                 <article class="surface-card p-8">
-                    <p class="eyebrow">Cards</p>
-                    <h3 class="mt-3 font-headline text-3xl font-extrabold text-on-surface">Content blocks</h3>
-                    <div class="mt-6 rounded-[1.5rem] bg-surface-container-low p-6">
-                        <p class="font-label text-xs font-bold uppercase tracking-[0.18em] text-primary">Featured Track</p>
-                        <h4 class="mt-3 font-headline text-2xl font-extrabold text-on-surface">Sustainable infrastructure for digital collections</h4>
-                        <p class="mt-3 text-lg leading-8 text-on-surface-variant">
-                            Pair editorial hierarchy with a clear supporting paragraph and one deliberate action.
-                        </p>
-                        <a href="#0" class="button-secondary mt-6">Read more</a>
+                    <p class="eyebrow">Badges</p>
+                    <h3 class="mt-3 font-headline text-3xl font-extrabold text-on-surface">Compact facts</h3>
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-bold text-primary">
+                            <span class="material-symbols-outlined text-base" aria-hidden="true">diversity_3</span>
+                            Libraries, archives, and museums
+                        </span>
+                        <span class="inline-flex items-center gap-2 rounded-full bg-secondary-fixed px-4 py-2 text-sm font-bold text-on-secondary-fixed">
+                            <span class="material-symbols-outlined text-base" aria-hidden="true">public</span>
+                            Virtual event
+                        </span>
+                        <span class="inline-flex items-center gap-2 rounded-full bg-tertiary-fixed px-4 py-2 text-sm font-bold text-on-tertiary-fixed">
+                            <span class="material-symbols-outlined text-base" aria-hidden="true">build</span>
+                            Practical sessions
+                        </span>
                     </div>
+                </article>
+
+                <article class="surface-card p-8">
+                    <p class="eyebrow">Resource Card</p>
+                    <a class="mt-3 block rounded-3xl border border-outline-variant/30 bg-surface-container-lowest p-6 transition-transform hover:-translate-y-1" href="#0">
+                        <div class="mb-6 flex items-center justify-between gap-4">
+                            <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-fixed text-primary">
+                                <span class="material-symbols-outlined" aria-hidden="true">article</span>
+                            </span>
+                            <span class="font-mono text-sm font-semibold text-on-surface-variant">01</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-extrabold text-on-surface">For presenters</h3>
+                        <p class="mt-4 leading-relaxed text-on-surface-variant">Guidance and practical support for Forum contributors.</p>
+                        <span class="mt-8 inline-flex items-center gap-2 font-label font-bold text-primary">
+                            Open resource
+                            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+                        </span>
+                    </a>
                 </article>
 
                 <article class="surface-card p-8">
                     <p class="eyebrow">Forms</p>
-                    <h3 class="mt-3 font-headline text-3xl font-extrabold text-on-surface">Inputs and labels</h3>
+                    <h3 class="mt-3 font-headline text-3xl font-extrabold text-on-surface">Inputs</h3>
                     <div class="mt-6 space-y-5">
                         <div>
                             <label class="form-label" for="sg-name">Full name</label>
@@ -201,42 +229,41 @@ permalink: /styleguide/
                             <label class="form-label" for="sg-topic">Session topic</label>
                             <select id="sg-topic" class="form-field">
                                 <option>Choose a track</option>
-                                <option>Metadata</option>
-                                <option>Preservation</option>
-                                <option>Community Practice</option>
+                                <option>Collections and Stewardship</option>
+                                <option>Community and Advocacy</option>
+                                <option>Infrastructure</option>
                             </select>
                         </div>
                     </div>
                 </article>
 
                 <article class="surface-card p-8">
-                    <p class="eyebrow">Alerts</p>
-                    <h3 class="mt-3 font-headline text-3xl font-extrabold text-on-surface">Callouts and status</h3>
+                    <p class="eyebrow">Callouts</p>
+                    <h3 class="mt-3 font-headline text-3xl font-extrabold text-on-surface">Status messaging</h3>
                     <div class="mt-6 space-y-4">
                         <div class="callout callout-info">
-                            <p class="font-label text-xs font-bold uppercase tracking-[0.18em]">Informational</p>
-                            <p class="mt-2 text-lg leading-8">Use this for registration updates, deadline notices, or guidance that should be visible but calm.</p>
+                            <p class="font-label text-xs font-bold uppercase tracking-widest">Informational</p>
+                            <p class="mt-2 leading-relaxed">Use for registration updates, deadline notes, and guidance that should stay visible.</p>
                         </div>
                         <div class="callout callout-success">
-                            <p class="font-label text-xs font-bold uppercase tracking-[0.18em]">Success</p>
-                            <p class="mt-2 text-lg leading-8">Reserve this for confirmed submissions, successful form states, or completed workflows.</p>
+                            <p class="font-label text-xs font-bold uppercase tracking-widest">Success</p>
+                            <p class="mt-2 leading-relaxed">Use for confirmed submissions, completed forms, and post-action messages.</p>
                         </div>
                     </div>
                 </article>
 
-                <article class="surface-card p-8 md:col-span-2">
-                    <p class="eyebrow">Navigation</p>
-                    <h3 class="mt-3 font-headline text-3xl font-extrabold text-on-surface">Primary navigation pattern</h3>
-                    <div class="mt-6 rounded-[1.75rem] border border-outline-variant/40 bg-surface-container-lowest p-4 shadow-[var(--shadow-card)]">
-                        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                            <div class="font-headline text-xl font-black tracking-tight text-on-primary-fixed-variant">DLF Forum 2026</div>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="rounded-full bg-primary px-4 py-2 font-label text-sm font-bold text-on-primary">Home</span>
-                                <span class="rounded-full px-4 py-2 font-label text-sm font-bold text-on-surface-variant">Program</span>
-                                <span class="rounded-full px-4 py-2 font-label text-sm font-bold text-on-surface-variant">About</span>
-                                <span class="rounded-full border border-outline-variant/50 px-4 py-2 font-label text-sm font-bold text-on-primary-fixed-variant">Submit a Proposal</span>
+                <article class="surface-card p-8">
+                    <p class="eyebrow">Timeline</p>
+                    <h3 class="mt-3 font-headline text-3xl font-extrabold text-on-surface">Important dates</h3>
+                    <div class="mt-8">
+                        {% for item in timeline %}
+                            <div class="relative border-l-2 border-outline-variant pb-10 pl-8 last:border-l-0 last:pb-0">
+                                <div class="absolute -left-2.25 top-0 h-4 w-4 rounded-full ring-4 ring-surface-container-lowest {% if item.active %}bg-primary{% else %}bg-secondary-container{% endif %}"></div>
+                                <span class="font-headline text-xs font-bold uppercase tracking-wider {% if item.active %}text-primary{% else %}text-secondary{% endif %}">{{ item.phase }}</span>
+                                <h4 class="mt-1 font-headline text-xl font-bold text-on-surface">{{ item.title }}</h4>
+                                <p class="mt-2 text-on-surface-variant">{{ item.date }}</p>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </article>
             </div>
