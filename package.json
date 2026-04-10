@@ -24,8 +24,9 @@
   "simple-git-hooks": {
     "pre-commit": "pnpm dlx lint-staged",
     "pre-push": "npm run format",
-    "preserveUnused": true,
-    "preserveUnused": ["commit-msg"]
+    "preserveUnused": [
+      "commit-msg"
+    ]
   },
   "keywords": [
     "eleventy",
@@ -62,7 +63,7 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
-    "husky": "^8.0.0",
+    "husky": "^8.0.3",
     "pretty-quick": "^4.2.2",
     "simple-git-hooks": "^2.13.1",
     "stylelint-config-standard": "^39.0.1",
