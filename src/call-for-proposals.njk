@@ -11,7 +11,7 @@ eleventyNavigation:
 
 {% endcss %}
 <!-- HERO -->
-<section class="bg-white border-b">
+<section id="hero">
     <div class="max-w-6xl mx-auto px-6 py-16 lg:py-20">
         <div class="max-w-3xl">
             <h1 class="text-4xl font-bold tracking-tight">
@@ -53,20 +53,23 @@ eleventyNavigation:
     </div>
 </section>
 
-{# <!-- QUICK FACTS -->
-<section class="bg-gray-50 border-b">
-    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-wrap gap-3 text-sm">
-        <span class="px-3 py-1 bg-white border rounded-full">Virtual Event</span>
-        <span class="px-3 py-1 bg-white border rounded-full">Oct 14–15, 2026</span>
-        <span class="px-3 py-1 bg-white border rounded-full">Deadline: May 11</span>
-        <span class="px-3 py-1 bg-white border rounded-full">Live via Zoom</span>
-        <span class="px-3 py-1 bg-white border rounded-full">Peer Reviewed</span>
-        <span class="px-3 py-1 bg-white border rounded-full">Community Voting</span>
+<!-- page nav -->
+<section id="page-nav" class="bg-gray-50 border-t border-b">
+    <div class="max-w-6xl mx-auto px-6 py-8">
+        <nav aria-label="Call for proposals page sections" class="flex flex-wrap gap-3 text-sm">
+            <a href="#accessibility" class="px-3 py-1 bg-white border rounded-full hover:border-primary hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Accessibility &amp; Radical Inclusion</a>
+            <a href="#topics" class="px-3 py-1 bg-white border rounded-full hover:border-primary hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Topics of Interest</a>
+            <a href="#session-formats" class="px-3 py-1 bg-white border rounded-full hover:border-primary hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Session Formats</a>
+            <a href="#proposal-requirements" class="px-3 py-1 bg-white border rounded-full hover:border-primary hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Proposal Requirements</a>
+            <a href="#submissions-evaluation" class="px-3 py-1 bg-white border rounded-full hover:border-primary hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Submissions &amp; Evaluation</a>
+            <a href="#diversity-inclusion" class="px-3 py-1 bg-white border rounded-full hover:border-primary hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Commitment to Diversity &amp; Inclusion</a>
+            <a href="#important-dates" class="px-3 py-1 bg-white border rounded-full hover:border-primary hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Important Dates</a>
+        </nav>
     </div>
-</section> #}
+</section> 
 
 <!-- ACCESSIBILITY -->
-<section>
+<section id="accessibility">
     <div class="max-w-6xl mx-auto px-6 py-16">
         <h2 class="text-2xl font-semibold">Accessibility &amp; Radical Inclusion</h2>
 
@@ -90,7 +93,7 @@ eleventyNavigation:
 </section>
 
 <!-- TOPICS -->
-<section class="bg-gray-50 border-y">
+<section id="topics" class="bg-gray-50 border-y">
     <div class="max-w-6xl mx-auto px-6 py-16">
         <h2 class="text-2xl font-semibold">Topics of Interest</h2>
 
@@ -122,7 +125,7 @@ eleventyNavigation:
 </section>
 
 <!-- SESSION FORMATS -->
-<section>
+<section id="session-formats">
     <div class="max-w-6xl mx-auto px-6 py-16">
         <h2 class="text-2xl font-semibold">Session Formats</h2>
 
@@ -169,7 +172,7 @@ eleventyNavigation:
 </section>
 
 <!-- REQUIREMENTS -->
-<section class="bg-gray-50 border-y">
+<section id="proposal-requirements" class="bg-gray-50 border-y">
     <div class="max-w-6xl mx-auto px-6 py-16">
         <h2 class="text-2xl font-semibold">Proposal Requirements</h2>
 
@@ -208,7 +211,7 @@ eleventyNavigation:
 </section>
 
 <!-- SUBMISSIONS & EVALUATION -->
-<section>
+<section id="submissions-evaluation">
     <div class="max-w-4xl mx-auto px-6 py-16">
         <h2 class="text-2xl font-semibold">Submissions &amp; Evaluation</h2>
 
@@ -236,7 +239,7 @@ eleventyNavigation:
 </section>
 
 <!-- COMMITMENT TO DIVERSITY & INCLUSION -->
-<section class="bg-gray-50 border-y">
+<section id="diversity-inclusion" class="bg-gray-50 border-y">
     <div class="max-w-4xl mx-auto px-6 py-16">
         <h2 class="text-2xl font-semibold">Commitment to Diversity &amp; Inclusion</h2>
 
@@ -260,7 +263,7 @@ eleventyNavigation:
 </section>
 
 <!-- IMPORTANT DATES -->
-<section>
+<section id="important-dates">
     <div class="max-w-4xl mx-auto px-6 py-16">
         <!-- Timeline -->
         <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0">
