@@ -16,11 +16,37 @@
             <div id="pages" class="flex items-center gap-8">
                 {% for entry in navPages %}
                     {% set class = 'font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-on-primary-fixed-variant transition-colors duration-300' %}
+                    {% set isActive = entry.url == page.url or (entry.url != '/' and entry.url in page.url) %}
+                    {% set hasChildren = entry.children and entry.children.length %}
 
-                    {% if entry.url == page.url %}
+                    {% if isActive %}
                         {% set class = class + ' border-b-4 border-primary/40 pb-1 text-on-primary-fixed-variant' %}
                     {% endif %}
-                    <a class="{{ class }}" href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
+                    {% if hasChildren %}
+                        <div class="group relative">
+                            <a
+                                class="{{ class }} inline-flex items-center gap-1"
+                                href="{{ entry.url }}"
+                                {% if entry.url == page.url %} aria-current="page"{% endif %}
+                                aria-haspopup="true">
+                                {{ entry.title }}
+                                <span class="material-symbols-outlined text-[1.25rem] leading-none transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden="true">expand_more</span>
+                            </a>
+                            <div class="invisible absolute left-1/2 top-full z-50 min-w-56 -translate-x-1/2 pt-3 opacity-0 transition-opacity duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                                <div class="rounded-xl border border-outline-variant/30 bg-surface px-2 py-2 shadow-[0_16px_40px_rgba(70,119,194,0.16)]">
+                                    {% for child in entry.children %}
+                                        {% set childClass = 'block rounded-lg px-4 py-3 font-headline text-base font-bold tracking-tight text-on-surface/75 transition-colors duration-200 hover:bg-primary/8 hover:text-on-primary-fixed-variant focus:bg-primary/8 focus:text-on-primary-fixed-variant' %}
+                                        {% if child.url == page.url %}
+                                            {% set childClass = childClass + ' bg-primary/10 text-on-primary-fixed-variant' %}
+                                        {% endif %}
+                                        <a class="{{ childClass }}" href="{{ child.url }}"{% if child.url == page.url %} aria-current="page"{% endif %}>{{ child.title }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <a class="{{ class }}" href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
+                    {% endif %}
                 {% endfor %}
             </div>
 
@@ -46,11 +72,24 @@
         <div class="flex flex-col gap-3">
             {% for entry in navPages %}
                 {% set mobileClass = 'font-headline rounded-xl px-3 py-2 text-lg font-bold tracking-tight text-on-surface/80 transition-colors duration-300 hover:bg-primary/8 hover:text-on-primary-fixed-variant' %}
+                {% set isActive = entry.url == page.url or (entry.url != '/' and entry.url in page.url) %}
+                {% set hasChildren = entry.children and entry.children.length %}
 
-                {% if entry.url == page.url %}
+                {% if isActive %}
                     {% set mobileClass = mobileClass + ' bg-primary/10 text-on-primary-fixed-variant' %}
                 {% endif %}
                 <a class="{{ mobileClass }}" href="{{ entry.url }}" data-nav-link{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
+                {% if hasChildren %}
+                    <div class="-mt-2 ml-4 flex flex-col gap-1 border-l border-outline-variant/50 pl-3">
+                        {% for child in entry.children %}
+                            {% set childMobileClass = 'font-headline rounded-lg px-3 py-2 text-base font-bold tracking-tight text-on-surface/75 transition-colors duration-300 hover:bg-primary/8 hover:text-on-primary-fixed-variant' %}
+                            {% if child.url == page.url %}
+                                {% set childMobileClass = childMobileClass + ' bg-primary/10 text-on-primary-fixed-variant' %}
+                            {% endif %}
+                            <a class="{{ childMobileClass }}" href="{{ child.url }}" data-nav-link{% if child.url == page.url %} aria-current="page"{% endif %}>{{ child.title }}</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             {% endfor %}
 
             {% if proposalUrl %}
