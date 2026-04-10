@@ -1,12 +1,26 @@
 <!-- Footer -->
+{%- set navPages = collections.all | eleventyNavigation -%}
+
 <footer class="bg-surface-container-low w-full mt-20 border-t border-outline-variant/30">
     <div class="w-full py-16 px-8 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
         <div class="flex flex-col items-center md:items-start gap-3">
-            <div class="font-headline font-extrabold text-primary text-xl">{{ metadata.title }}</div>
-            <p class="font-body text-sm leading-relaxed text-on-surface-variant">
-                ©2026 <a href="https://www.diglib.org/" target="_blank" rel="noopener noreferrer" class="underline hover:text-primary">Digital Library Federation</a>.</p>
+            <a href="/" class="flex items-center text-on-primary-fixed-variant" aria-label="{{ metadata.title }}">
+                <img
+                    src="{{ '/static/dlf-forum-2026-logo.svg' }}"
+                    alt="{{ metadata.title }}"
+                    class="h-10 w-auto md:h-12">
+            </a>
+            {# <p class="font-body text-sm leading-relaxed text-on-surface-variant">
+                ©2026 <a href="https://www.diglib.org/" target="_blank" rel="noopener noreferrer" class="underline hover:text-primary">Digital Library Federation</a>.</p> #}
         </div>
-        <div class="flex flex-wrap justify-center gap-10">
+        <nav aria-label="Footer" class="flex flex-wrap items-center justify-center gap-6">
+            {% for entry in navPages %}
+                <a class="font-body text-sm font-bold text-on-surface-variant hover:text-primary transition-colors" href="{{ entry.url }}">
+                    {{ entry.title }}
+                </a>
+            {% endfor %}
+        </nav>
+        <div class="flex flex-wrap justify-center gap-6">
             {% include "footer-nav.njk" %}
         </div>
     </div>
