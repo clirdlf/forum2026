@@ -73,6 +73,24 @@
   /* Shadows */
   --shadow-card: 0 18px 40px rgb(45 40 34 / 8%);
   --shadow-lifted: 0 24px 60px rgb(70 119 194 / 16%);
+
+  /* Layout */
+  --anchor-offset: 8rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--anchor-offset);
+}
+
+main [id] {
+  scroll-margin-top: var(--anchor-offset);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* New Sparkle icon */
