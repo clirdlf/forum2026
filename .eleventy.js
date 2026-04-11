@@ -72,6 +72,21 @@ module.exports = function (eleventyConfig) {
     return result;
   });
 
+  // shortcodes
+  eleventyConfig.addPairedShortcode("sparkleCard", function(content, colorClass = "text-yellow-400") {
+    return `
+      <div class="border rounded-xl p-5 relative overflow-hidden">
+        <div class="absolute top-3 right-3 pointer-events-none">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+              class="w-6 h-6 ${colorClass} animate-sparkle">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.712L18 9.75l-.259-1.038a3.375 3.375 0 00-2.453-2.453L14.25 6l1.038-.259a3.375 3.375 0 002.453-2.453L18 2.25l.259 1.038a3.375 3.375 0 002.453-2.453L21.75 6l-1.038.259a3.375 3.375 0 00-2.453 2.453zM16.167 19.833L15.75 21l-.417-1.167a1.125 1.125 0 00-.75-.75L13.5 18.667l1.167-.417a1.125 1.125 0 00.75-.75L15.75 16.5l.417 1.167a1.125 1.125 0 00.75.75L18 18.667l-1.167.417a1.125 1.125 0 00-.75.75z" />
+          </svg>
+        </div>
+        ${content}
+      </div>
+    `;
+  });
+
   // Filters
   eleventyConfig.addFilter('usd', function (value) {
     if (typeof value !== 'number') {

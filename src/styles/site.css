@@ -75,6 +75,34 @@
   --shadow-lifted: 0 24px 60px rgb(70 119 194 / 16%);
 }
 
+/* New Sparkle icon */
+.sparkle-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    pointer-events: none; /* Keeps the link clickable */
+}
+
+/* The Animation */
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2) rotate(15deg);
+        opacity: 0.7;
+    }
+}
+
+.animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+    /* Tailwind utility sizes if not using custom CSS */
+    width: 24px;
+    height: 24px;
+}
+/* end sparkle icon */
+
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,
