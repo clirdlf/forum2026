@@ -51,5 +51,48 @@
             
         </main>
         {% include "footer.njk" %}
+        <button
+            id="scroll-top-button"
+            class="scroll-top-button"
+            type="button"
+            aria-label="Scroll to top"
+            hidden>
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+        </button>
+        <script>
+            (() => {
+                const button = document.getElementById('scroll-top-button');
+
+                if (!button) {
+                    return;
+                }
+
+                const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+                const updateVisibility = () => {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const documentHeight = document.documentElement.scrollHeight;
+                    const viewportHeight = window.innerHeight;
+                    const canScroll = documentHeight - viewportHeight > 1;
+                    const shouldShow = canScroll && scrollTop > Math.min(400, viewportHeight * 0.5);
+
+                    button.hidden = !shouldShow;
+                    button.classList.toggle('is-visible', shouldShow);
+                };
+
+                button.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+                    });
+                });
+
+                window.addEventListener('scroll', updateVisibility, { passive: true });
+                window.addEventListener('resize', updateVisibility);
+                reducedMotionQuery.addEventListener('change', updateVisibility);
+
+                updateVisibility();
+            })();
+        </script>
     </body>
 </html>
