@@ -73,8 +73,10 @@ module.exports = function (eleventyConfig) {
   });
 
   // shortcodes
-  eleventyConfig.addPairedShortcode("sparkleCard", function(content, colorClass = "text-yellow-400") {
-    return `
+  eleventyConfig.addPairedShortcode(
+    'sparkleCard',
+    function (content, colorClass = 'text-yellow-400') {
+      return `
       <div class="border rounded-xl p-5 relative overflow-hidden">
         <div class="absolute top-3 right-3 pointer-events-none">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
@@ -85,7 +87,8 @@ module.exports = function (eleventyConfig) {
         ${content}
       </div>
     `;
-  });
+    }
+  );
 
   // Filters
   eleventyConfig.addFilter('usd', function (value) {

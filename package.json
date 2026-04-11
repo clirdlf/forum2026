@@ -16,6 +16,7 @@
     "format:check": "prettier --check .",
     "lint:js": "eslint .",
     "lint:css": "stylelint \"src/**/*.{css,scss}\"",
+    "lint:css:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
     "lint:html": "html-validate \"src/**/*.{html,njk}\"",
     "lint": "pnpm lint:js && pnpm lint:css",
     "test": "pnpm build && node --test tests/site.test.mjs",
