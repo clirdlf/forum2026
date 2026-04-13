@@ -91,7 +91,7 @@ main [id] {
 body {
   line-height: 1.6;
   letter-spacing: -0.01em;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
 }
 
 .scroll-top-button {
