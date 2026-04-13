@@ -81,10 +81,17 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--anchor-offset);
+  background: var(--color-background);
 }
 
 main [id] {
   scroll-margin-top: var(--anchor-offset);
+}
+
+body {
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  text-rendering: optimizeLegibility;
 }
 
 .scroll-top-button {
@@ -111,11 +118,11 @@ main [id] {
   transform: translateY(0.75rem);
   pointer-events: none;
   transition:
-    opacity 180ms ease,
-    transform 180ms ease,
-    background-color 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease;
+    opacity 240ms ease,
+    transform 240ms ease,
+    background-color 240ms ease,
+    color 240ms ease,
+    border-color 240ms ease;
 }
 
 .scroll-top-button .material-symbols-outlined {
@@ -226,7 +233,7 @@ main [id] {
   font-family: var(--font-label);
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-primary);
 }
@@ -234,8 +241,8 @@ main [id] {
 .section-title {
   font-family: var(--font-headline);
   font-size: clamp(2rem, 3.6vw, 3.25rem);
-  font-weight: 800;
-  line-height: 1;
+  font-weight: 700;
+  line-height: 1.05;
   letter-spacing: -0.04em;
   color: var(--color-on-surface);
 }
@@ -267,30 +274,31 @@ main [id] {
   align-items: center;
   justify-content: center;
   gap: 0.625rem;
-  padding: 0.95rem 1.25rem;
+  padding: 0.95rem 1.35rem;
   border-radius: 999px;
   border: 1px solid transparent;
   font-family: var(--font-label);
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 650;
   line-height: 1;
   text-decoration: none;
   transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    background-color 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease;
+    transform 260ms ease,
+    box-shadow 260ms ease,
+    background-color 260ms ease,
+    color 260ms ease,
+    border-color 260ms ease;
 }
 
 .button-primary {
   background: linear-gradient(135deg, var(--color-primary), #3b68ac);
   color: var(--color-on-primary);
-  box-shadow: var(--shadow-lifted);
+  box-shadow: 0 16px 34px rgb(70 119 194 / 14%);
 }
 
 .button-primary:hover {
   transform: translateY(-1px);
+  box-shadow: 0 18px 38px rgb(70 119 194 / 16%);
 }
 
 .button-secondary {
@@ -312,10 +320,10 @@ main [id] {
 
 .text-link {
   color: var(--color-primary);
-  font-weight: 700;
+  font-weight: 650;
   text-decoration: underline;
-  text-decoration-thickness: 0.12em;
-  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.2em;
 }
 
 .form-field {
