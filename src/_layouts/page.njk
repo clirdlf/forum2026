@@ -10,14 +10,22 @@ layout: base.njk
     <div class="page-hero-inner relative z-20 mx-auto max-w-4xl px-6 text-center">
         <h1 class="font-headline text-[3.4rem] leading-[0.98] tracking-[-0.045em] text-on-primary-container md:text-[5.2rem]">{{ title }}</h1>
         <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-on-primary-container/84 md:text-[1.35rem]">{{ byline }}</p>
-        <div class="page-hero-actions mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            {% if metadata.proposal_url %}
-                <a class="button-primary" href="{{ metadata.proposal_url }}" target="_blank" rel="noopener noreferrer">Submit Your Proposal</a>
-            {% else %}
-                <span class="inline-flex items-center justify-center rounded-full bg-tertiary-container px-8 py-4 font-label text-lg font-semibold text-on-tertiary-container shadow-card">Proposal Portal Coming Soon</span>
-            {% endif %}
-            <a class="button-secondary border-white/25 bg-white/10 text-white hover:bg-white/16 hover:text-white" target="_blank" href="https://www.diglib.org/call-for-proposals-2026-virtual-dlf-forum/">Learn More</a>
-        </div>
+        {% if heroButtons %}
+            <div class="page-hero-actions mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+                {% for button in heroButtons %}
+                    {% set buttonUrl = button.url %}
+                    {% if button.metadataKey and metadata[button.metadataKey] %}
+                        {% set buttonUrl = metadata[button.metadataKey] %}
+                    {% endif %}
+
+                    {% if buttonUrl %}
+                        <a class="{{ button.class | default('button-primary') }}" href="{{ buttonUrl }}"{% if button.external %} target="_blank" rel="{{ button.rel | default('noopener noreferrer') }}"{% endif %}>{{ button.text }}</a>
+                    {% elif button.fallbackText %}
+                        <span class="{{ button.fallbackClass | default('inline-flex items-center justify-center rounded-full bg-tertiary-container px-8 py-4 font-label text-lg font-semibold text-on-tertiary-container shadow-card') }}">{{ button.fallbackText }}</span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </section>
 

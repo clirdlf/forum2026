@@ -443,3 +443,42 @@ body {
 .styleguide-shell > * {
   position: relative;
 }
+
+/* ── Sponsorship page utilities ── */
+
+/* SVG check icon in tier comparison table */
+.tier-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+/* Em-dash for "not included" table cells */
+.tier-dash {
+  color: var(--color-outline);
+  font-size: 0.9rem;
+}
+
+/* Stat chip in sponsorship hero */
+.stat-chip {
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 58%, white);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 92%), rgb(255 255 255 / 76%)),
+    var(--color-surface-container-lowest);
+  box-shadow: var(--shadow-card);
+}
+
+/* Hover lift for sponsorship tier cards */
+.sponsor-tier-card {
+  transition:
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    transform 260ms ease;
+}
+
+.sponsor-tier-card:hover {
+  box-shadow: var(--shadow-lifted);
+  transform: translateY(-0.2rem);
+}
