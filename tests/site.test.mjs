@@ -2,8 +2,17 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
+const sitePathPrefix = '/forum2026';
+
 async function readBuiltPage(pathname) {
   return readFile(new URL(`../_site/${pathname}`, import.meta.url), 'utf8');
+}
+
+function currentNavLinkPattern(href, label) {
+  return new RegExp(
+    `<a[^>]*href="${sitePathPrefix}${href}"[^>]*aria-current="page"[^>]*>${label}</a>`,
+    'i'
+  );
 }
 
 // test('build outputs a homepage with core forum messaging', async () => {
@@ -36,11 +45,8 @@ test('primary navigation exposes current page state to assistive tech', async ()
     readBuiltPage('call-for-proposals/index.html'),
   ]);
 
-  assert.match(homeHtml, /<a[^>]*href="\/"[^>]*aria-current="page"[^>]*>Home<\/a>/i);
-  assert.match(
-    cfpHtml,
-    /<a[^>]*href="\/call-for-proposals\/"[^>]*aria-current="page"[^>]*>Call for Proposals<\/a>/i
-  );
+  assert.match(homeHtml, currentNavLinkPattern('/', 'Home'));
+  assert.match(cfpHtml, currentNavLinkPattern('/call-for-proposals/', 'Call for Proposals'));
 });
 
 test('proposal CTA is never rendered as a dead button in built pages', async () => {
