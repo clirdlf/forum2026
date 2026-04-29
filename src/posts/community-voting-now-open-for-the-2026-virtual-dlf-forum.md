@@ -1,7 +1,7 @@
 ---
 title: Community Voting Now Open for the 2026 Virtual DLF Forum
 image: /static/DLF2025-49.webp
-date: 2026-05-13
+date: 2026-05-11
 tags: announcements
 draft: false
 ---
