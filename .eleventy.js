@@ -122,6 +122,12 @@ module.exports = function (eleventyConfig) {
     return arr.slice(0, 1);
   });
 
+  eleventyConfig.addFilter("firstWords", (text, count) => {
+    if(!text) return "";
+    const plainText = text.replace(/(<([^>]+)>)/gi, "");
+    return plainText.split(' ').slice(0, count).join(' ') + (plainText.split(' ').length > count ? '...' : '');
+  });
+
   // Get the first `n` elements of a collection.
   eleventyConfig.addFilter('head', (array, n) => {
     if (!Array.isArray(array) || array.length === 0) {
