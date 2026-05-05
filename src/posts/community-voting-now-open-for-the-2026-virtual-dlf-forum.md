@@ -3,7 +3,7 @@ title: Community Voting Now Open for the 2026 Virtual DLF Forum
 image: /static/DLF2025-49.webp
 date: 2026-05-11
 tags: announcements
-draft: false
+draft: true
 ---
 
 Community voting is now open for the 2026 Virtual DLF Forum\! Community voting lets DLF and the Program Committee know which proposals resonate with our community. Results are weighed when developing the final event programs. Anyone may participate, and you may vote for as many proposals as you’d like, but each one once.
