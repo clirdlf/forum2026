@@ -264,6 +264,10 @@ body {
   background: linear-gradient(180deg, rgb(34 50 78 / 44%), rgb(31 42 65 / 64%));
 }
 
+.post-hero-image {
+  object-position: var(--post-hero-image-position, center center);
+}
+
 .page-hero-inner {
   padding-top: clamp(8rem, 14vw, 11rem);
   padding-bottom: clamp(5rem, 10vw, 7rem);
@@ -471,6 +475,11 @@ body {
   text-decoration: underline;
   text-decoration-thickness: 0.1em;
   text-underline-offset: 0.2em;
+}
+
+.post-content a.button-primary {
+  color: var(--color-on-primary);
+  text-decoration: none;
 }
 
 .post-content ul,

@@ -2,6 +2,8 @@
 const htmlmin = require('html-minifier-terser');
 // const { type } = require("os");
 const { DateTime } = require('luxon');
+const markdownIt = require('markdown-it');
+const markdownItAttrs = require('markdown-it-attrs');
 
 const { eleventyImageTransformPlugin } = require('@11ty/eleventy-img');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
@@ -18,6 +20,14 @@ const gitBranch = require('git-branch');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setTemplateFormats(['njk', 'js', 'md', 'html']);
+
+  const markdownLibrary = markdownIt({
+    html: true,
+    linkify: true,
+    typographer: true,
+  }).use(markdownItAttrs);
+
+  eleventyConfig.setLibrary('md', markdownLibrary);
 
   eleventyConfig.addBundle('css');
   eleventyConfig.addBundle('js');
