@@ -17,11 +17,11 @@ A cohort of 8–10 Fellows will participate in interactive Digital Storytelling 
 
 Selected Fellows will receive:
 
-* Complimentary registration to the 2026 Virtual DLF Forum
-* A $250 stipend
-* Participation in a small Fellowship cohort
-* A pre-Forum virtual orientation
-* Visibility through publication on the DLF blog
+- Complimentary registration to the 2026 Virtual DLF Forum
+- A $250 stipend
+- Participation in a small Fellowship cohort
+- A pre-Forum virtual orientation
+- Visibility through publication on the DLF blog
 
 We welcome applications from early-career professionals, students, contingent and adjunct practitioners, first-time DLF Forum attendees, professionals from under-resourced institutions, and practitioners whose perspectives are historically underrepresented in digital libraries and cultural heritage spaces.
 
