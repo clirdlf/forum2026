@@ -16,6 +16,17 @@ eleventyNavigation:
                     Welcome to the <br>
                 <span class="text-primary italic">Virtual DLF Forum</span>
             </h1>
+            {% if metadata.dates %}
+                <div class="mb-8 inline-flex max-w-full items-center gap-4 rounded-[1.75rem] border border-primary/15 bg-primary/8 px-5 py-4 text-primary shadow-card">
+                    <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-on-primary" aria-hidden="true">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                    </span>
+                    <div>
+                        <p class="font-label text-xs font-bold uppercase tracking-[0.18em]">Forum Dates</p>
+                        <p class="mt-1 font-headline text-2xl font-extrabold leading-tight tracking-[-0.025em] text-on-primary-fixed-variant md:text-[1.75rem]">{{ metadata.dates }}</p>
+                    </div>
+                </div>
+            {% endif %}
             <p class="max-w-lg text-[1.15rem] leading-8 text-on-surface-variant md:text-[1.22rem]">
                     The DLF Forum is a dynamic gathering place for GLAM professionals to share ideas, sustain critical work, and spark innovation. It connects library, archives, and museum practitioners, as well as other knowledge workers, through <strong>intentional community building</strong> and <strong>collaborative exchange</strong>.
                 </p>
