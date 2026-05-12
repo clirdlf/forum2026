@@ -2,14 +2,14 @@
 title: 2026 Virtual DLF Forum Digital Storytelling Fellows
 image: /static/DLF2025-399.webp
 imageGravity: top
-date: 2026-05-18
+date: 2026-06-23
 tags: announcements
 draft: false
 ---
 
 ## Applications Now Open
 
-**Applications Close Tuesday, June 23, 2026, at 11:59 pm ET**
+**Applications Close Tuesday, July 21, 2026, at 11:59 pm EST**
 
 Applications are now open for the 2026 Virtual DLF Forum Digital Storytelling Fellows program. This new fellowship experience is directly connected to the Forum’s new Digital Storytelling Presentation session format and centers on digital storytelling, emerging technologies, and ethical practice across libraries, archives, and museums.
 

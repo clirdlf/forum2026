@@ -28,7 +28,9 @@ Start Eleventy and the PostCSS watcher:
 pnpm dev
 ```
 
-The development server writes to `_site/` and usually serves the site at `http://localhost:8080`.
+The development server writes to `_site/` and usually serves the site at `http://localhost:8080`. The terminal output should tell you the URL to access the site.
+
+Stop the development server with `Ctrl+C` in the terminal where `pnpm dev` is running.
 
 ## Commands
 
@@ -36,7 +38,7 @@ The development server writes to `_site/` and usually serves the site at `http:/
 pnpm dev
 ```
 
-Run Eleventy in serve mode and watch CSS.
+Run Eleventy in serve mode and watch CSS. Stop it with `Ctrl+C` from the same terminal session.
 
 ```bash
 pnpm build
