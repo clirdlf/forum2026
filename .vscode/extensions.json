@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "ginfuru.better-nunjucks",
+    "okitavera.vscode-nunjucks-formatter",
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "davidanson.vscode-markdownlint",
+    "ecmel.vscode-html-css",
+    "editorconfig.editorconfig",
+    "christian-kohler.path-intellisense",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "vincaslt.highlight-matching-tag",
+    "naumovs.color-highlight",
+    "shardulm94.trailing-spaces",
+    "codezombiech.gitignore",
+    "github.vscode-github-actions"
+  ]
+}
