@@ -32,6 +32,22 @@ The development server writes to `_site/` and usually serves the site at `http:/
 
 Stop the development server with `Ctrl+C` in the terminal where `pnpm dev` is running.
 
+## VS Code Setup
+
+This project includes recommended VS Code extensions in `.vscode/extensions.json`. When you open the repository in VS Code, it should prompt you to install them. If it does not, open the Extensions panel and search for `@recommended`.
+
+The recommended extensions support:
+
+- Nunjucks syntax and formatting
+- Tailwind CSS class completion
+- ESLint and Prettier feedback
+- Markdown linting and editing helpers
+- HTML tag closing, renaming, and highlighting
+- `.gitignore` support
+- GitHub Actions workflow visibility
+
+VS Code can be used for the editing and Git parts of the workflow. Use the built-in terminal for commands such as `pnpm install`, `pnpm dev`, `pnpm build`, and `pnpm test`. Use the Source Control panel to review changed files, stage changes, write commit messages, commit, and push. Use the GitHub Actions extension to check whether preview and production builds passed after pushing.
+
 ## Commands
 
 ```bash
@@ -244,3 +260,88 @@ Current tests check accessibility and navigation basics, including:
 GitHub Actions builds and deploys the site to GitHub Pages from pushes to `main` and `dev` using Node.js 24. The deploy workflow installs dependencies with `pnpm install --frozen-lockfile`, runs `pnpm build`, uploads `_site/`, and deploys through Pages.
 
 CI also runs on pushes and pull requests targeting `main` and `dev`. The CI workflow runs `pnpm lint`, `pnpm format:check`, `pnpm build`, and `pnpm test`; run `pnpm lint:html` locally for template validation unless the workflow is updated to include it.
+
+### Sample Git Workflow
+
+This repository uses two GitHub remotes:
+
+- `dev`: `waynegraham/forum2026`, used for previewing pages, posts, and components at <https://waynegraham.github.io/forum2026/> before they are released on the main site.
+- `origin`: `clirdlf/forum2026`, used for the main public site at <https://forum2026.diglib.org/>.
+
+For routine content updates, work locally on the `dev` branch first:
+
+```bash
+git switch dev
+git pull dev dev
+```
+
+In VS Code, you can do the same branch check from the branch name in the lower-left corner. Make sure it says `dev` before you start editing. Use the Source Control panel's sync/pull action if the branch needs the latest changes.
+
+Add or edit the page, post, images, or styles locally. Before committing, run the local checks that match the size of the change:
+
+```bash
+pnpm build
+pnpm test
+```
+
+Review what changed:
+
+```bash
+git status
+git diff
+```
+
+In VS Code, the Source Control panel shows the same changed files. Click a file to review its diff before staging it.
+
+Stage the files you meant to change. Replace these example paths with the files from `git status` that belong to your update:
+
+```bash
+git add README.md
+git add src/posts/example-post.md
+git add src/static/example-image.jpg src/static/example-image.webp
+```
+
+In VS Code, stage the same files by selecting the `+` next to each intended file in the Source Control panel.
+
+Commit the change with a short message:
+
+```bash
+git commit -m "Add example post"
+```
+
+In VS Code, type the same short message in the Source Control message box, then choose Commit.
+
+Push the `dev` branch to the preview remote:
+
+```bash
+git push dev dev
+```
+
+In VS Code, use the Source Control panel's push action. Confirm that the push is going to the `dev` remote and the `dev` branch.
+
+After pushing, watch the GitHub Actions build for the `waynegraham/forum2026` repository. You can do this on GitHub or with the recommended GitHub Actions VS Code extension. When the build finishes, view the preview site at <https://waynegraham.github.io/forum2026/> and confirm the page, post, images, and links look right.
+
+When the preview is approved and ready for the main site, merge `dev` into `main` locally:
+
+```bash
+git switch main
+git pull origin main
+git merge dev
+```
+
+Run the build and tests again before publishing:
+
+```bash
+pnpm build
+pnpm test
+```
+
+Push `main` to the production remote:
+
+```bash
+git push origin main
+```
+
+Then watch the GitHub Actions build for the `clirdlf/forum2026` repository. When it finishes, view the main site at <https://forum2026.diglib.org/> and confirm the published output.
+
+If Git reports conflicts during `git merge dev`, stop and resolve those files before pushing to `origin`. Do not force-push unless the project maintainer explicitly asks for it.
