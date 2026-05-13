@@ -4,7 +4,7 @@ Static site for the DLF Forum 2026, built with Eleventy 3, Tailwind CSS 4, and P
 
 ## Requirements
 
-- Node.js 22 or newer
+- Node.js 24 or newer
 - `pnpm` 10.32.1 or compatible
 
 The repository pins the package manager in `package.json`. With Corepack:
@@ -28,7 +28,9 @@ Start Eleventy and the PostCSS watcher:
 pnpm dev
 ```
 
-The development server writes to `_site/` and usually serves the site at `http://localhost:8080`.
+The development server writes to `_site/` and usually serves the site at `http://localhost:8080`. The terminal output should tell you the URL to access the site.
+
+Stop the development server with `Ctrl+C` in the terminal where `pnpm dev` is running.
 
 ## Commands
 
@@ -36,7 +38,7 @@ The development server writes to `_site/` and usually serves the site at `http:/
 pnpm dev
 ```
 
-Run Eleventy in serve mode and watch CSS.
+Run Eleventy in serve mode and watch CSS. Stop it with `Ctrl+C` from the same terminal session.
 
 ```bash
 pnpm build
@@ -55,7 +57,7 @@ pnpm lint
 pnpm lint:html
 ```
 
-Run JavaScript/CSS linting, and HTML/template validation.
+Run JavaScript/CSS linting, and HTML/template validation. `pnpm lint` runs ESLint and Stylelint; run `pnpm lint:html` separately when checking Nunjucks/HTML templates.
 
 ```bash
 pnpm format:check
@@ -70,7 +72,9 @@ Check or apply Prettier formatting.
 - `src/_data/`: global data, including `metadata.json`
 - `src/_includes/`: shared partials such as navigation, footer, Open Graph, and CTAs
 - `src/_layouts/`: base page layouts
+- `src/posts/`: Markdown news posts
 - `src/resources/`: resource landing page and resource entries
+- `src/assets/`: passthrough assets copied to `_site/assets/`
 - `src/static/`: passthrough assets copied to `_site/static/`
 - `src/styles/site.css`: Tailwind import, theme tokens, and shared component CSS
 - `tests/`: post-build checks against generated HTML
@@ -107,6 +111,19 @@ eleventyExcludeFromCollections: true
 
 The styleguide is available at `/styleguide/` as a direct reference page, but is intentionally excluded from 11ty collections so it does not appear in navigation, footer links, sitemap collection loops, or resource listings.
 
+Posts live as Markdown files in `src/posts/` and use `layout: post.njk`. Use front matter for title, description, date, and draft state:
+
+```yaml
+title: 'Community Voting Now Open'
+description: 'A short summary for listings and metadata.'
+date: 2026-05-12
+layout: post.njk
+draft: false
+tags: [post]
+```
+
+Posts with `draft: true` are omitted from production builds.
+
 ## Styling
 
 Shared design tokens live in `src/styles/site.css` inside the Tailwind `@theme` block. Prefer the existing color, font, radius, and shadow tokens before adding new values.
@@ -136,7 +153,7 @@ The Eleventy config sets a `pathPrefix` of `/forum2026/` when building from the 
 
 ## Assets And Images
 
-Files in `src/static/` are copied through to `_site/static/`. The Eleventy image transform plugin is enabled for generated image formats, but explicit static assets are still managed in `src/static/`.
+Files in `src/static/` are copied through to `_site/static/`, and files in `src/assets/` are copied through to `_site/assets/`. The Eleventy image transform plugin is enabled for generated image formats, but explicit static assets are still managed in `src/static/` or `src/assets/`.
 
 Image credits:
 
@@ -157,6 +174,6 @@ Current tests check accessibility and navigation basics, including:
 
 ## Deployment
 
-GitHub Actions builds and deploys the site to GitHub Pages from pushes to `main` and `dev`. The deploy workflow installs dependencies with `pnpm install --frozen-lockfile`, runs `pnpm build`, uploads `_site/`, and deploys through Pages.
+GitHub Actions builds and deploys the site to GitHub Pages from pushes to `main` and `dev` using Node.js 24. The deploy workflow installs dependencies with `pnpm install --frozen-lockfile`, runs `pnpm build`, uploads `_site/`, and deploys through Pages.
 
-CI also runs on pushes and pull requests targeting `main` and `dev`.
+CI also runs on pushes and pull requests targeting `main` and `dev`. The CI workflow runs `pnpm lint`, `pnpm format:check`, `pnpm build`, and `pnpm test`; run `pnpm lint:html` locally for template validation unless the workflow is updated to include it.

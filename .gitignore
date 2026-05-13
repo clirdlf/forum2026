@@ -9,3 +9,4 @@ package-lock.json
 # Lint cache files
 .eslintcache
 .codex
+.pnpm-store/
