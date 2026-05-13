@@ -111,18 +111,85 @@ eleventyExcludeFromCollections: true
 
 The styleguide is available at `/styleguide/` as a direct reference page, but is intentionally excluded from 11ty collections so it does not appear in navigation, footer links, sitemap collection loops, or resource listings.
 
-Posts live as Markdown files in `src/posts/` and use `layout: post.njk`. Use front matter for title, description, date, and draft state:
+Posts live as Markdown files in `src/posts/`. The directory data file `src/posts/posts.json` applies the post layout and the `post` collection tag automatically. Individual posts should still include their display title, optional hero image, date, category tag, and draft state:
 
 ```yaml
 title: 'Community Voting Now Open'
 description: 'A short summary for listings and metadata.'
+image: /static/community-voting.webp
 date: 2026-05-12
-layout: post.njk
 draft: false
-tags: [post]
+tags: announcements
 ```
 
 Posts with `draft: true` are omitted from production builds.
+
+### Adding A New Post
+
+1. Draft the post in Google Docs. Use heading styles, lists, and links cleanly so the Markdown export is easier to review.
+2. In Google Docs, download the draft as Markdown. This usually creates a `.zip` containing the `.md` file and any exported images.
+3. Rename the Markdown file in kebab-case and place it in `src/posts/`, for example `community-voting-now-open.md`. Keep filenames lowercase and descriptive. This will become part of the URL (e.g. `/posts/community-voting-now-open/`). Best practice is to use the title of the post as the slug. 
+4. Review the Markdown before committing it. Remove Google Docs export artifacts, fix escaped punctuation when needed, and make sure links and buttons use the expected site syntax.
+5. Add or update front matter at the top of the file:
+
+   ```yaml
+   ---
+   title: Post Title
+   description: Short summary for listings and metadata.
+   image: /static/example-image.webp
+   imageGravity: center
+   date: 2026-05-13
+   tags: announcements
+   draft: true
+   ---
+   ```
+
+6. Use `draft: true` while the post is in progress. Switch to `draft: false` only when it is ready for production.
+
+Post tags:
+
+- `post` is already supplied by `src/posts/posts.json`; do not add it again in individual post front matter.
+- Use the post's category tag in the post file. The current default is `announcements`.
+- Prefer these post category tags before adding new ones:
+
+  - `announcements`: official site, registration, voting, deadline, and general event updates
+  - `program`: schedule, session format, speaker, and program content updates
+  - `fellowships`: fellowship, scholarship, and cohort opportunities
+  - `sponsors`: sponsor announcements and sponsor-related updates
+
+- If a post needs multiple category tags, use YAML array syntax, for example `tags: [announcements, program]`.
+
+Post images:
+
+- Put post images in `src/static/`.
+- Prefer `.webp` for published images and reference them as `/static/filename.webp`.
+- If starting from JPG or PNG files, add the originals to `src/static/`, then resize oversized files:
+
+  ```bash
+  ./resize_images.sh
+  ```
+
+- Generate WebP versions from JPG originals:
+
+  ```bash
+  ./generate_webp.sh
+  ```
+
+- To regenerate existing WebP files from JPG originals, run:
+
+  ```bash
+  ./generate_webp.sh --all
+  ```
+
+- `resize_images.sh` requires ImageMagick. `generate_webp.sh` requires the `cwebp` command.
+- After generating a `.webp`, update the post's `image` front matter to use the WebP file.
+- Keep the source JPG/PNG files in `src/static/` as repo-managed originals, even when the published post uses WebP.
+
+Image gravity:
+
+- Use `imageGravity` when the hero crop needs to favor a specific part of the image.
+- Common values are `top`, `center`, and `bottom`.
+- Omit `imageGravity` when the default crop works.
 
 ## Styling
 
