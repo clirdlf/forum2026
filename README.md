@@ -127,6 +127,39 @@ eleventyExcludeFromCollections: true
 
 The styleguide is available at `/styleguide/` as a direct reference page, but is intentionally excluded from 11ty collections so it does not appear in navigation, footer links, sitemap collection loops, or resource listings.
 
+### Adding Sponsors
+
+Sponsors are displayed on `/sponsers/` and are managed through `src/_data/sponsors.json`. The page groups sponsors by the `level` field using the `sponsorsByLevel` collection in `.eleventy.js`.
+
+Add one object per sponsor:
+
+```json
+{
+  "name": "Sponsor Name",
+  "level": "Gold",
+  "url": "https://example.org",
+  "logo": "/static/sponsor-name-logo.webp",
+  "description": "A short description of the sponsor and their work.",
+  "placeholder": false
+}
+```
+
+Sponsor fields:
+
+- `name`: display name for the sponsor.
+- `level`: sponsorship tier. Use exactly `Platinum`, `Gold`, `Silver`, or `Bronze`.
+- `url`: sponsor website URL. Sponsor names, logos, and card links point here.
+- `logo`: path to the sponsor logo. Put logo files in `src/static/` and reference them as `/static/filename.ext`.
+- `description`: short public description shown on the sponsor card.
+- `placeholder`: optional boolean. Use `true` only for dummy records; omit it or set it to `false` for confirmed sponsors.
+
+Logo guidance:
+
+- Prefer sponsor-supplied SVG, PNG, or WebP files with transparent or white backgrounds.
+- Use descriptive lowercase filenames such as `acme-library-logo.svg`.
+- Keep logos visually balanced; the sponsor card constrains logo display, but oversized source files should still be optimized before committing.
+- Remove dummy sponsor records from `src/_data/sponsors.json` when confirmed sponsors are ready to publish.
+
 Posts live as Markdown files in `src/posts/`. The directory data file `src/posts/posts.json` applies the post layout and the `post` collection tag automatically. Individual posts should still include their display title, optional hero image, date, category tag, and draft state:
 
 ```yaml
@@ -144,7 +177,7 @@ Posts with `draft: true` are omitted from production builds.
 
 1. Draft the post in Google Docs. Use heading styles, lists, and links cleanly so the Markdown export is easier to review.
 2. In Google Docs, download the draft as Markdown. This usually creates a `.zip` containing the `.md` file and any exported images.
-3. Rename the Markdown file in kebab-case and place it in `src/posts/`, for example `community-voting-now-open.md`. Keep filenames lowercase and descriptive. This will become part of the URL (e.g. `/posts/community-voting-now-open/`). Best practice is to use the title of the post as the slug. 
+3. Rename the Markdown file in kebab-case and place it in `src/posts/`, for example `community-voting-now-open.md`. Keep filenames lowercase and descriptive. This will become part of the URL (e.g. `/posts/community-voting-now-open/`). Best practice is to use the title of the post as the slug.
 4. Review the Markdown before committing it. Remove Google Docs export artifacts, fix escaped punctuation when needed, and make sure links and buttons use the expected site syntax.
 5. Add or update front matter at the top of the file:
 
@@ -167,7 +200,6 @@ Post tags:
 - `post` is already supplied by `src/posts/posts.json`; do not add it again in individual post front matter.
 - Use the post's category tag in the post file. The current default is `announcements`.
 - Prefer these post category tags before adding new ones:
-
   - `announcements`: official site, registration, voting, deadline, and general event updates
   - `program`: schedule, session format, speaker, and program content updates
   - `fellowships`: fellowship, scholarship, and cohort opportunities

@@ -324,6 +324,35 @@ body {
   transform: translateY(-0.2rem);
 }
 
+.sponsor-card {
+  transition:
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    transform 260ms ease;
+}
+
+.sponsor-card:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 16%, white);
+  box-shadow: var(--shadow-lifted);
+  transform: translateY(-0.2rem);
+}
+
+.sponsor-logo-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 9rem;
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 58%, white);
+  border-radius: 1.25rem;
+  background: var(--color-surface-container-lowest);
+}
+
+.sponsor-logo-frame img {
+  width: min(100%, 16rem);
+  max-height: 7rem;
+  object-fit: contain;
+}
+
 .showcase-grid {
   display: grid;
   gap: 1.5rem;

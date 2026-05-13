@@ -1,4 +1,5 @@
-// const fs = require("fs");
+const fs = require('node:fs');
+const path = require('node:path');
 const htmlmin = require('html-minifier-terser');
 // const { type } = require("os");
 const { DateTime } = require('luxon');
@@ -37,7 +38,7 @@ module.exports = function (eleventyConfig) {
   }
 
   // Preprocessors
-  eleventyConfig.addPreprocessor('drafts', '*', (data, content) => {
+  eleventyConfig.addPreprocessor('drafts', '*', (data, _content) => {
     if (data.draft && process.env.ELEVENTY_RUN_MODE === 'build') {
       return false;
     }
@@ -56,10 +57,19 @@ module.exports = function (eleventyConfig) {
   });
 
   // Collections
-  eleventyConfig.addCollection('sponsorsByLevel', function (collectionApi) {
-    const sponsors = Array.isArray(collectionApi.globalData?.sponsors)
-      ? collectionApi.globalData.sponsors
-      : [];
+  eleventyConfig.addCollection('sponsorsByLevel', function () {
+    const sponsorsPath = path.join(__dirname, 'src/_data/sponsors.json');
+    let sponsors = [];
+
+    try {
+      sponsors = JSON.parse(fs.readFileSync(sponsorsPath, 'utf8'));
+    } catch {
+      sponsors = [];
+    }
+
+    if (!Array.isArray(sponsors)) {
+      sponsors = [];
+    }
 
     const levels = ['Platinum', 'Gold', 'Silver', 'Bronze'];
 
