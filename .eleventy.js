@@ -16,7 +16,7 @@ const CleanCSS = require('clean-css');
 const eleventyPluginHubspot = require('eleventy-plugin-hubspot');
 
 const { IdAttributePlugin, HtmlBasePlugin } = require('@11ty/eleventy');
-const gitBranch = require('git-branch');
+const { getDeploymentPathPrefix } = require('./_config/deployment-path-prefix.cjs');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setTemplateFormats(['njk', 'js', 'md', 'html']);
@@ -31,11 +31,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addBundle('css');
   eleventyConfig.addBundle('js');
-
-  // const branch = process.env.GIT_BRANCH || 'main';
-  const branch = gitBranch.sync() || 'main';
-
-  // console.log("Branch: ", branch);
 
   if (process.env.ELEVENTY_PRODUCTION) {
     eleventyConfig.addTransform('htmlmin', htmlminTransform);
@@ -54,11 +49,6 @@ module.exports = function (eleventyConfig) {
 
   // Watch targets
   eleventyConfig.addWatchTarget('./src/styles/');
-
-  var pathPrefix = '';
-  if (process.env.GITHUB_REPOSITORY) {
-    pathPrefix = process.env.GITHUB_REPOSITORY.split('/')[1];
-  }
 
   // Plugins
   eleventyConfig.addPlugin(emojiReadTime, {
@@ -231,8 +221,7 @@ module.exports = function (eleventyConfig) {
       layouts: '_layouts',
       includes: '_includes',
     },
-    // pathPrefix: '/forum2026/',
-    pathPrefix: branch === 'dev' ? '/forum2026/' : '',
+    pathPrefix: getDeploymentPathPrefix(),
   };
 };
 

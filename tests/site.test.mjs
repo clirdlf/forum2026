@@ -1,16 +1,21 @@
 import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-const sitePathPrefix = '/forum2026';
+const require = createRequire(import.meta.url);
+const { getDeploymentPathPrefix } = require('../_config/deployment-path-prefix.cjs');
+const sitePathPrefix = getDeploymentPathPrefix().replace(/\/$/, '');
 
 async function readBuiltPage(pathname) {
   return readFile(new URL(`../_site/${pathname}`, import.meta.url), 'utf8');
 }
 
 function currentNavLinkPattern(href, label) {
+  const expectedHref = `${sitePathPrefix}${href}`;
+
   return new RegExp(
-    `<a[^>]*href="${sitePathPrefix}${href}"[^>]*aria-current="page"[^>]*>${label}</a>`,
+    `<a[^>]*href="${expectedHref}"[^>]*aria-current="page"[^>]*>${label}</a>`,
     'i'
   );
 }
