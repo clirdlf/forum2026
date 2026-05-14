@@ -217,10 +217,22 @@ Post images:
   ./resize_images.sh
   ```
 
+  On Windows:
+
+  ```powershell
+  .\resize_images.ps1
+  ```
+
 - Generate WebP versions from JPG originals:
 
   ```bash
   ./generate_webp.sh
+  ```
+
+  On Windows:
+
+  ```powershell
+  .\generate_webp.ps1
   ```
 
 - To regenerate existing WebP files from JPG originals, run:
@@ -229,7 +241,13 @@ Post images:
   ./generate_webp.sh --all
   ```
 
-- `resize_images.sh` requires ImageMagick. `generate_webp.sh` requires the `cwebp` command.
+  On Windows:
+
+  ```powershell
+  .\generate_webp.ps1 -All
+  ```
+
+- `resize_images.sh` and `resize_images.ps1` require ImageMagick. `generate_webp.sh` and `generate_webp.ps1` require the `cwebp` command.
 - After generating a `.webp`, update the post's `image` front matter to use the WebP file.
 - Keep the source JPG/PNG files in `src/static/` as repo-managed originals, even when the published post uses WebP.
 
