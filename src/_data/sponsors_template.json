@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Example Platinum Partner",
+    "level": "Platinum",
+    "url": "https://example.com/platinum-partner",
+    "logo": "/static/sponsor-placeholder.svg",
+    "description": "Placeholder sponsor record for layout testing. Replace this text with a 100-word organization description when a sponsor is confirmed.",
+    "placeholder": true
+  },
+  {
+    "name": "Example Gold Partner",
+    "level": "Gold",
+    "url": "https://example.com/gold-partner",
+    "logo": "/static/sponsor-placeholder.svg",
+    "description": "Placeholder sponsor record for layout testing. Use this field for a concise sponsor description that explains the organization's work.",
+    "placeholder": true
+  },
+  {
+    "name": "Example Silver Partner",
+    "level": "Silver",
+    "url": "https://example.com/silver-partner",
+    "logo": "/static/sponsor-placeholder.svg",
+    "description": "Placeholder sponsor record for layout testing. Sponsor descriptions should stay useful, direct, and relevant to the Forum audience.",
+    "placeholder": true
+  },
+  {
+    "name": "Example Bronze Partner",
+    "level": "Bronze",
+    "url": "https://example.com/bronze-partner",
+    "logo": "/static/sponsor-placeholder.svg",
+    "description": "Placeholder sponsor record for layout testing. Replace the logo, URL, name, level, and description as sponsors are confirmed.",
+    "placeholder": true
+  }
+]

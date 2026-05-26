@@ -1,34 +1,19 @@
 [
   {
-    "name": "Example Platinum Partner",
+    "name": "AM Quartex",
     "level": "Platinum",
-    "url": "https://example.com/platinum-partner",
-    "logo": "/static/sponsor-placeholder.svg",
-    "description": "Placeholder sponsor record for layout testing. Replace this text with a 100-word organization description when a sponsor is confirmed.",
-    "placeholder": true
+    "url": "https://www.amdigital.co.uk/am-quartex",
+    "logo": "/static/AMQuartex.svg",
+    "description": "AM combine deep expertise in digital primary source publishing with the technology to enhance access and discovery. Blending high-quality content with a platform built to surface and showcase unique digital assets, AM transform rare archival materials into essential research and learning experiences.",
+    "placeholder": false
   },
   {
-    "name": "Example Gold Partner",
-    "level": "Gold",
-    "url": "https://example.com/gold-partner",
-    "logo": "/static/sponsor-placeholder.svg",
-    "description": "Placeholder sponsor record for layout testing. Use this field for a concise sponsor description that explains the organization's work.",
-    "placeholder": true
-  },
-  {
-    "name": "Example Silver Partner",
-    "level": "Silver",
-    "url": "https://example.com/silver-partner",
-    "logo": "/static/sponsor-placeholder.svg",
-    "description": "Placeholder sponsor record for layout testing. Sponsor descriptions should stay useful, direct, and relevant to the Forum audience.",
-    "placeholder": true
-  },
-  {
-    "name": "Example Bronze Partner",
-    "level": "Bronze",
-    "url": "https://example.com/bronze-partner",
-    "logo": "/static/sponsor-placeholder.svg",
-    "description": "Placeholder sponsor record for layout testing. Replace the logo, URL, name, level, and description as sponsors are confirmed.",
-    "placeholder": true
+    "name": "TIND",
+    "level": "Platinum",
+    "url": "https://www.tind.io/",
+    "logo": "/static/TIND_logo_blue_artboard.png",
+    "description": "TIND is an official CERN spin-off providing commercial library management systems, digital preservation, and research data management solutions based on CERN open-source software. Serving academic, public, and special research libraries around the globe, TIND is headquartered in Oslo, Norway.",
+    "placeholder": false
   }
+
 ]
