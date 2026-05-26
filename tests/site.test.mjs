@@ -14,10 +14,7 @@ async function readBuiltPage(pathname) {
 function currentNavLinkPattern(href, label) {
   const expectedHref = `${sitePathPrefix}${href}`;
 
-  return new RegExp(
-    `<a[^>]*href="${expectedHref}"[^>]*aria-current="page"[^>]*>${label}</a>`,
-    'i'
-  );
+  return new RegExp(`<a[^>]*href="${expectedHref}"[^>]*aria-current="page"[^>]*>${label}</a>`, 'i');
 }
 
 // test('build outputs a homepage with core forum messaging', async () => {
