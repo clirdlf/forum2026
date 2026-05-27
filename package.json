@@ -20,11 +20,22 @@
     "lint:html": "html-validate \"src/**/*.{html,njk}\"",
     "lint": "pnpm lint:js && pnpm lint:css",
     "test": "pnpm build && node --test tests/site.test.mjs",
-    "prepare": "husky install"
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{html,json,md,yml,yaml}": "prettier --write"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm dlx lint-staged",
-    "pre-push": "npm run format",
+    "pre-push": "pnpm format && pnpm lint",
     "preserveUnused": [
       "commit-msg"
     ]
@@ -47,15 +58,15 @@
     "cross-env": "^10.1.0",
     "cssnano": "^8.0.1",
     "eleventy-plugin-hubspot": "^2.0.0",
-    "eslint": "^10.3.0",
+    "eslint": "^10.4.0",
     "git-branch": "^2.0.1",
     "glob": "^13.0.6",
     "html-minifier-terser": "^7.2.0",
     "luxon": "^3.7.2",
-    "markdown-it": "^14.1.1",
-    "markdown-it-attrs": "^4.3.1",
+    "markdown-it": "^14.2.0",
+    "markdown-it-attrs": "^5.0.0",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.5.14",
+    "postcss": "^8.5.15",
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.1.1",
     "postcss-nested": "^7.0.2",
@@ -67,6 +78,7 @@
   },
   "devDependencies": {
     "husky": "^9.1.7",
+    "lint-staged": "^17.0.5",
     "pretty-quick": "^4.2.2",
     "simple-git-hooks": "^2.13.1",
     "stylelint-config-standard": "^39.0.1",

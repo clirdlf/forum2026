@@ -14,10 +14,7 @@ async function readBuiltPage(pathname) {
 function currentNavLinkPattern(href, label) {
   const expectedHref = `${sitePathPrefix}${href}`;
 
-  return new RegExp(
-    `<a[^>]*href="${expectedHref}"[^>]*aria-current="page"[^>]*>${label}</a>`,
-    'i'
-  );
+  return new RegExp(`<a[^>]*href="${expectedHref}"[^>]*aria-current="page"[^>]*>${label}</a>`, 'i');
 }
 
 // test('build outputs a homepage with core forum messaging', async () => {
@@ -64,6 +61,13 @@ test('proposal CTA is never rendered as a dead button in built pages', async () 
     assert.doesNotMatch(html, /<button[^>]*>\s*Submit(?: Your)? Proposal/i);
     assert.match(html, /Proposal Portal Coming Soon|href="https?:\/\/[^"]+"/i);
   }
+});
+
+test('sponsors page is published at the expected route', async () => {
+  const html = await readBuiltPage('sponsorship/sponsors/index.html');
+
+  assert.match(html, /<title>\s*Sponsors\s*-\s*Virtual DLF Forum 2026\s*<\/title>/i);
+  assert.match(html, /Thank you to our sponsors\./i);
 });
 
 test('decorative material symbol icons are hidden from assistive tech', async () => {
