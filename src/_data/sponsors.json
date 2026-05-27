@@ -3,7 +3,7 @@
     "name": "AM Quartex",
     "level": "Platinum",
     "url": "https://www.amdigital.co.uk/am-quartex",
-    "logo": "/static/AMQuartex.svg",
+    "logo": "/static/AMQuartex.png",
     "description": "AM combine deep expertise in digital primary source publishing with the technology to enhance access and discovery. Blending high-quality content with a platform built to surface and showcase unique digital assets, AM transform rare archival materials into essential research and learning experiences.",
     "placeholder": false
   },
@@ -11,7 +11,7 @@
     "name": "TIND",
     "level": "Platinum",
     "url": "https://www.tind.io/",
-    "logo": "/static/TIND_logo_blue_artboard.png",
+    "logo": "/static/TIND_logo_blue_trimmed.png",
     "description": "TIND is an official CERN spin-off providing commercial library management systems, digital preservation, and research data management solutions based on CERN open-source software. Serving academic, public, and special research libraries around the globe, TIND is headquartered in Oslo, Norway.",
     "placeholder": false
   }
