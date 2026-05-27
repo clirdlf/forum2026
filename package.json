@@ -23,9 +23,15 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,html,njk}": "eslint --fix",
-    "*.{css,scss}": "stylelint --fix",
-    "*.{js,html,njk,css,scss}": "prettier --write"
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{html,json,md,yml,yaml}": "prettier --write"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm dlx lint-staged",

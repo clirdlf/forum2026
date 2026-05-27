@@ -63,6 +63,13 @@ test('proposal CTA is never rendered as a dead button in built pages', async () 
   }
 });
 
+test('sponsors page is published at the expected route', async () => {
+  const html = await readBuiltPage('sponsorship/sponsors/index.html');
+
+  assert.match(html, /<title>\s*Sponsors\s*-\s*Virtual DLF Forum 2026\s*<\/title>/i);
+  assert.match(html, /Thank you to our sponsors\./i);
+});
+
 test('decorative material symbol icons are hidden from assistive tech', async () => {
   const [homeHtml, cfpHtml] = await Promise.all([
     readBuiltPage('index.html'),

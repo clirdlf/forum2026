@@ -129,7 +129,7 @@ The styleguide is available at `/styleguide/` as a direct reference page, but is
 
 ### Adding Sponsors
 
-Sponsors are displayed on `/sponsers/` and are managed through `src/_data/sponsors.json`. The page groups sponsors by the `level` field using the `sponsorsByLevel` collection in `.eleventy.js`.
+Sponsors are displayed on `/sponsorship/sponsors/` and are managed through `src/_data/sponsors.json`. The page groups sponsors by the `level` field using the `sponsorsByLevel` collection in `.eleventy.js`.
 
 Add one object per sponsor:
 
