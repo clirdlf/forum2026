@@ -342,9 +342,10 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 9rem;
+  background: var(--color-surface-container-lowest);
+
   /* border: 1px solid color-mix(in srgb, var(--color-outline-variant) 58%, white);
   border-radius: 1.25rem; */
-  background: var(--color-surface-container-lowest);
 }
 
 .sponsor-logo-frame img {
