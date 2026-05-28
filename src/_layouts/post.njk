@@ -3,7 +3,7 @@ layout: base.njk
 ---
 
 <article class="post-page">
-    <section class="page-hero relative flex min-h-[31rem] items-center justify-center overflow-hidden bg-primary-container">
+    <section class="page-hero relative flex min-h-124 items-center justify-center overflow-hidden bg-primary-container">
         {% if image %}
             {% set imageGravityPosition = "center center" %}
             {% if imageGravity == "top" %}
@@ -22,7 +22,7 @@ layout: base.njk
         {% endif %}
 
         <div class="page-hero-inner relative z-20 mx-auto max-w-5xl px-6 text-center">
-            <p class="eyebrow !text-white/90">Forum Update</p>
+            <p class="eyebrow text-white/90!">Forum Update</p>
             <h1 class="mx-auto mt-4 max-w-4xl font-headline text-[3.1rem] font-extrabold leading-[0.98] tracking-[-0.045em] text-on-primary-container md:text-[4.8rem]">
                 {{ title }}
             </h1>
