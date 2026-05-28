@@ -3,9 +3,17 @@ layout: base.njk
 ---
 {# Hero section #}
 <section class="page-hero relative flex min-h-[29rem] items-center justify-center overflow-hidden bg-primary-container">
+    {% set imageGravityPosition = "center center" %}
+    {% if imageGravity == "top" %}
+        {% set imageGravityPosition = "center top" %}
+    {% elif imageGravity == "bottom" %}
+        {% set imageGravityPosition = "center bottom" %}
+    {% elif imageGravity == "middle" or imageGravity == "center" %}
+        {% set imageGravityPosition = "center center" %}
+    {% endif %}
     <div id="hero" class="absolute inset-0 z-0">
         <div class="page-hero-overlay absolute inset-0 z-10"></div>
-        <img class="w-full h-full object-cover" alt="" src="{{ cover }}"/>
+        <img class="post-hero-image h-full w-full object-cover" style="--post-hero-image-position: {{ imageGravityPosition }};" alt="" src="{{ cover }}"/>
     </div>
     <div class="page-hero-inner relative z-20 mx-auto max-w-4xl px-6 text-center">
         <h1 class="font-headline text-[3.4rem] leading-[0.98] tracking-[-0.045em] text-on-primary-container md:text-[5.2rem]">{{ title }}</h1>
