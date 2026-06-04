@@ -14,5 +14,12 @@
     "logo": "/static/TIND_logo_blue_trimmed.png",
     "description": "TIND is an official CERN spin-off providing commercial library management systems, digital preservation, and research data management solutions based on CERN open-source software. Serving academic, public, and special research libraries around the globe, TIND is headquartered in Oslo, Norway.",
     "placeholder": false
+  },
+  {
+    "name": "JSTOR Digital Stewardship Services",
+    "level": "Bronze",
+    "logo": "/static/JSTOR.png",
+    "description": "",
+    "placeholder": false
   }
 ]
