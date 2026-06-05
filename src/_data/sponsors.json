@@ -19,7 +19,6 @@
     "name": "JSTOR Digital Stewardship Services",
     "level": "Bronze",
     "logo": "/static/JSTOR.png",
-    "description": "",
-    "placeholder": false
+    "description": ""
   }
 ]
