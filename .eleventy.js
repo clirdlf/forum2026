@@ -153,6 +153,20 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, n);
   });
 
+  eleventyConfig.addFilter('navigationContainsUrl', (entry, url) => {
+    if (!entry || !url) {
+      return false;
+    }
+
+    if (entry.url === url || (entry.url !== '/' && url.startsWith(entry.url))) {
+      return true;
+    }
+
+    return Array.isArray(entry.children)
+      ? entry.children.some((child) => child.url === url)
+      : false;
+  });
+
   eleventyConfig.addFilter('readableDate', (dateObj, format, zone) => {
     // Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
     return DateTime.fromJSDate(dateObj, { zone: zone || 'utc' }).toFormat(format || 'dd LLL yyyy');
