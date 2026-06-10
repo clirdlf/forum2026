@@ -47,7 +47,12 @@ test('primary navigation exposes current page state to assistive tech', async ()
     readBuiltPage('call-for-proposals/index.html'),
   ]);
 
-  assert.match(homeHtml, currentNavLinkPattern('/', 'Home'));
+  assert.doesNotMatch(homeHtml, />Home<\/a>/i);
+  assert.match(homeHtml, />Program(?:<|\s)/i);
+  assert.match(homeHtml, />Resources(?:<|\s)/i);
+  assert.match(homeHtml, />Support(?:<|\s)/i);
+  assert.doesNotMatch(homeHtml, /border-primary\/40[^>]*href="[^"]*resources\//i);
+  assert.doesNotMatch(homeHtml, /border-primary\/40[^>]*href="[^"]*sponsorship\//i);
   assert.match(cfpHtml, currentNavLinkPattern('/call-for-proposals/', 'Call for Proposals'));
 });
 

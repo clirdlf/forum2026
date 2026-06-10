@@ -1,7 +1,7 @@
 {%- set navPages = collections.all | eleventyNavigation -%}
 {%- set proposalUrl = metadata.proposal_url -%}
 
-<nav id="site-nav" aria-label="Primary" class="fixed top-4 left-1/2 z-50 flex w-[95%] max-w-7xl -translate-x-1/2 flex-col rounded-2xl border border-outline-variant/30 bg-surface/80 px-5 py-3 shadow-[0_8px_32px_rgba(70,119,194,0.06)] backdrop-blur-md md:px-8 md:py-4">
+<nav id="site-nav" aria-label="Primary" class="fixed top-4 left-1/2 z-50 flex w-[95%] max-w-7xl -translate-x-1/2 flex-col rounded-2xl border border-outline-variant/30 bg-surface/80 px-5 py-3 shadow-[0_8px_32px_rgba(70,119,194,0.06)] backdrop-blur-md lg:px-7 lg:py-3">
     <div class="flex items-center justify-between gap-4">
         <a href="/" class="flex items-center text-on-primary-fixed-variant" aria-label="{{ metadata.title }}">
             <img
@@ -11,12 +11,13 @@
                 class="h-10 w-auto md:h-12">
         </a>
 
-        <div class="hidden items-center gap-8 md:flex">
-            <div id="pages" class="flex items-center gap-8">
+        <div class="hidden items-center gap-5 lg:flex">
+            <div id="pages" class="flex items-center gap-5">
                 {% for entry in navPages %}
-                    {% set class = 'font-headline tracking-tight font-bold text-lg text-on-surface/70 hover:text-on-primary-fixed-variant transition-colors duration-300' %}
-                    {% set isActive = entry.url == page.url or (entry.url != '/' and entry.url in page.url) %}
+                    {% if entry.url != '/' %}
                     {% set hasChildren = entry.children and entry.children.length %}
+                    {% set isActive = entry | navigationContainsUrl(page.url) %}
+                    {% set class = 'font-headline text-base font-bold tracking-tight text-on-surface/70 transition-colors duration-300 hover:text-on-primary-fixed-variant' %}
 
                     {% if isActive %}
                         {% set class = class + ' border-b-4 border-primary/40 pb-1 text-on-primary-fixed-variant' %}
@@ -33,6 +34,12 @@
                             </a>
                             <div class="invisible absolute left-1/2 top-full z-50 min-w-56 -translate-x-1/2 pt-3 opacity-0 transition-opacity duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                                 <div class="rounded-xl border border-outline-variant/30 bg-surface px-2 py-2 shadow-[0_16px_40px_rgba(70,119,194,0.16)]">
+                                    {% set parentLabel = 'News & Updates' if entry.title == 'Program' else ('All Resources' if entry.title == 'Resources' else ('Sponsorship Opportunities' if entry.title == 'Support' else entry.title)) %}
+                                    {% set parentClass = 'block rounded-lg px-4 py-3 font-headline text-base font-bold tracking-tight text-on-surface/75 transition-colors duration-200 hover:bg-primary/8 hover:text-on-primary-fixed-variant focus:bg-primary/8 focus:text-on-primary-fixed-variant' %}
+                                    {% if entry.url == page.url %}
+                                        {% set parentClass = parentClass + ' bg-primary/10 text-on-primary-fixed-variant' %}
+                                    {% endif %}
+                                    <a class="{{ parentClass }}" href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ parentLabel }}</a>
                                     {% for child in entry.children %}
                                         {% set childClass = 'block rounded-lg px-4 py-3 font-headline text-base font-bold tracking-tight text-on-surface/75 transition-colors duration-200 hover:bg-primary/8 hover:text-on-primary-fixed-variant focus:bg-primary/8 focus:text-on-primary-fixed-variant' %}
                                         {% if child.url == page.url %}
@@ -46,19 +53,20 @@
                     {% else %}
                         <a class="{{ class }}" href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
                     {% endif %}
+                    {% endif %}
                 {% endfor %}
             </div>
 
             {% if proposalUrl %}
-                <a class="text-on-primary-fixed-variant font-semibold transition-opacity hover:opacity-80" href="{{ proposalUrl }}" target="_blank" rel="noopener noreferrer">Submit a Proposal</a>
+                <a class="rounded-xl bg-primary px-4 py-2 font-semibold text-on-primary transition-colors hover:bg-primary/90" href="{{ proposalUrl }}" target="_blank" rel="noopener noreferrer">Submit a Proposal</a>
             {% else %}
-                <span class="pointer-events-none text-gray-400 font-semibold">Registration</span>
+                <a class="rounded-xl bg-primary px-4 py-2 font-semibold text-on-primary transition-colors hover:bg-primary/90{% if page.url == '/registration/' %} ring-4 ring-primary/20{% endif %}" href="/registration/"{% if page.url == '/registration/' %} aria-current="page"{% endif %}>Registration</a>
             {% endif %}
         </div>
 
         <button
             id="mobile-menu-toggle"
-            class="flex h-11 w-11 items-center justify-center rounded-xl border border-outline-variant/60 text-on-primary-fixed-variant transition-colors hover:bg-primary/8 md:hidden"
+            class="flex h-11 w-11 items-center justify-center rounded-xl border border-outline-variant/60 text-on-primary-fixed-variant transition-colors hover:bg-primary/8 lg:hidden"
             type="button"
             aria-expanded="false"
             aria-controls="mobile-menu"
@@ -67,19 +75,30 @@
         </button>
     </div>
 
-    <div id="mobile-menu" class="hidden border-t border-outline-variant/40 pt-4 mt-4 md:hidden">
+    <div id="mobile-menu" class="hidden mt-4 border-t border-outline-variant/40 pt-4 lg:hidden">
         <div class="flex flex-col gap-3">
             {% for entry in navPages %}
+                {% if entry.url != '/' %}
                 {% set mobileClass = 'font-headline rounded-xl px-3 py-2 text-lg font-bold tracking-tight text-on-surface/80 transition-colors duration-300 hover:bg-primary/8 hover:text-on-primary-fixed-variant' %}
-                {% set isActive = entry.url == page.url or (entry.url != '/' and entry.url in page.url) %}
                 {% set hasChildren = entry.children and entry.children.length %}
+                {% set isActive = entry | navigationContainsUrl(page.url) %}
 
                 {% if isActive %}
                     {% set mobileClass = mobileClass + ' bg-primary/10 text-on-primary-fixed-variant' %}
                 {% endif %}
-                <a class="{{ mobileClass }}" href="{{ entry.url }}" data-nav-link{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
+                {% if hasChildren %}
+                    <p class="{{ mobileClass }}">{{ entry.title }}</p>
+                {% else %}
+                    <a class="{{ mobileClass }}" href="{{ entry.url }}" data-nav-link{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
+                {% endif %}
                 {% if hasChildren %}
                     <div class="-mt-2 ml-4 flex flex-col gap-1 border-l border-outline-variant/50 pl-3">
+                        {% set parentLabel = 'News & Updates' if entry.title == 'Program' else ('All Resources' if entry.title == 'Resources' else ('Sponsorship Opportunities' if entry.title == 'Support' else entry.title)) %}
+                        {% set parentMobileClass = 'font-headline rounded-lg px-3 py-2 text-base font-bold tracking-tight text-on-surface/75 transition-colors duration-300 hover:bg-primary/8 hover:text-on-primary-fixed-variant' %}
+                        {% if entry.url == page.url %}
+                            {% set parentMobileClass = parentMobileClass + ' bg-primary/10 text-on-primary-fixed-variant' %}
+                        {% endif %}
+                        <a class="{{ parentMobileClass }}" href="{{ entry.url }}" data-nav-link{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ parentLabel }}</a>
                         {% for child in entry.children %}
                             {% set childMobileClass = 'font-headline rounded-lg px-3 py-2 text-base font-bold tracking-tight text-on-surface/75 transition-colors duration-300 hover:bg-primary/8 hover:text-on-primary-fixed-variant' %}
                             {% if child.url == page.url %}
@@ -89,6 +108,7 @@
                         {% endfor %}
                     </div>
                 {% endif %}
+                {% endif %}
             {% endfor %}
 
             {% if proposalUrl %}
@@ -96,9 +116,9 @@
                     Submit a Proposal
                 </a>
             {% else %}
-                <span class="pointer-events-none text-gray-400 mt-2 rounded-xl border border-primary/20 px-3 py-3 text-left font-semibold">
+                <a class="mt-2 rounded-xl border border-primary/20 px-3 py-3 text-left font-semibold text-on-primary-fixed-variant transition-colors hover:bg-primary/8{% if page.url == '/registration/' %} bg-primary/10{% endif %}" href="/registration/" data-nav-link{% if page.url == '/registration/' %} aria-current="page"{% endif %}>
                     Registration
-                </span>
+                </a>
             {% endif %}
         </div>
     </div>
@@ -110,7 +130,7 @@
         const toggle = document.getElementById('mobile-menu-toggle');
         const menu = document.getElementById('mobile-menu');
         const icon = toggle?.querySelector('.material-symbols-outlined');
-        const mobileBreakpoint = window.matchMedia('(min-width: 768px)');
+        const mobileBreakpoint = window.matchMedia('(min-width: 1024px)');
         let lastFocusedElement = null;
 
         if (!nav || !toggle || !menu || !icon) {
