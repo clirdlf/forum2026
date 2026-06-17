@@ -4,7 +4,6 @@ image: /static/DLF2025-399.webp
 imageGravity: top
 date: 2026-06-23
 tags: announcements
-draft: true
 ---
 
 ## Applications Now Open
