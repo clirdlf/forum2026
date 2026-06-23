@@ -1,5 +1,6 @@
 {%- set navPages = collections.all | eleventyNavigation -%}
 {%- set proposalUrl = metadata.proposal_url -%}
+{%- set programUrl = metadata.program_link -%}
 
 <nav id="site-nav" aria-label="Primary" class="fixed top-4 left-1/2 z-50 flex w-[95%] max-w-7xl -translate-x-1/2 flex-col rounded-2xl border border-outline-variant/30 bg-surface/80 px-5 py-3 shadow-[0_8px_32px_rgba(70,119,194,0.06)] backdrop-blur-md lg:px-7 lg:py-3">
     <div class="flex items-center justify-between gap-4">
@@ -57,6 +58,10 @@
                 {% endfor %}
             </div>
 
+            {% if programUrl %}
+                <a class="font-headline text-base font-bold tracking-tight text-on-surface/70 transition-colors duration-300 hover:text-on-primary-fixed-variant" href="{{ programUrl }}" target="_blank" rel="noopener noreferrer">Virtual Program</a>
+            {% endif %}
+
             {% if proposalUrl %}
                 <a class="rounded-xl bg-primary px-4 py-2 font-semibold text-on-primary transition-colors hover:bg-primary/90" href="{{ proposalUrl }}" target="_blank" rel="noopener noreferrer">Submit a Proposal</a>
             {% else %}
@@ -110,6 +115,12 @@
                 {% endif %}
                 {% endif %}
             {% endfor %}
+
+            {% if programUrl %}
+                <a class="font-headline rounded-xl px-3 py-2 text-lg font-bold tracking-tight text-on-surface/80 transition-colors duration-300 hover:bg-primary/8 hover:text-on-primary-fixed-variant" href="{{ programUrl }}" target="_blank" rel="noopener noreferrer" data-nav-link>
+                    Full Program
+                </a>
+            {% endif %}
 
             {% if proposalUrl %}
                 <a class="mt-2 rounded-xl border border-primary/20 px-3 py-3 text-left font-semibold text-on-primary-fixed-variant transition-colors hover:bg-primary/8" href="{{ proposalUrl }}" target="_blank" rel="noopener noreferrer">
