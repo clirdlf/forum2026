@@ -35,7 +35,7 @@
                             </a>
                             <div class="invisible absolute left-1/2 top-full z-50 min-w-56 -translate-x-1/2 pt-3 opacity-0 transition-opacity duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                                 <div class="rounded-xl border border-outline-variant/30 bg-surface px-2 py-2 shadow-[0_16px_40px_rgba(70,119,194,0.16)]">
-                                    {% set parentLabel = 'News & Updates' if entry.title == 'Program' else ('All Resources' if entry.title == 'Resources' else ('Sponsorship Opportunities' if entry.title == 'Support' else entry.title)) %}
+                                    {% set parentLabel = "What's New" if entry.title == 'Program' else ('All Resources' if entry.title == 'Resources' else ('Sponsorship Opportunities' if entry.title == 'Support' else entry.title)) %}
                                     {% set parentClass = 'block rounded-lg px-4 py-3 font-headline text-base font-bold tracking-tight text-on-surface/75 transition-colors duration-200 hover:bg-primary/8 hover:text-on-primary-fixed-variant focus:bg-primary/8 focus:text-on-primary-fixed-variant' %}
                                     {% if entry.url == page.url %}
                                         {% set parentClass = parentClass + ' bg-primary/10 text-on-primary-fixed-variant' %}
@@ -98,7 +98,7 @@
                 {% endif %}
                 {% if hasChildren %}
                     <div class="-mt-2 ml-4 flex flex-col gap-1 border-l border-outline-variant/50 pl-3">
-                        {% set parentLabel = 'News & Updates' if entry.title == 'Program' else ('All Resources' if entry.title == 'Resources' else ('Sponsorship Opportunities' if entry.title == 'Support' else entry.title)) %}
+                        {% set parentLabel = "What's New" if entry.title == 'Program' else ('All Resources' if entry.title == 'Resources' else ('Sponsorship Opportunities' if entry.title == 'Support' else entry.title)) %}
                         {% set parentMobileClass = 'font-headline rounded-lg px-3 py-2 text-base font-bold tracking-tight text-on-surface/75 transition-colors duration-300 hover:bg-primary/8 hover:text-on-primary-fixed-variant' %}
                         {% if entry.url == page.url %}
                             {% set parentMobileClass = parentMobileClass + ' bg-primary/10 text-on-primary-fixed-variant' %}
