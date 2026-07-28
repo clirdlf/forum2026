@@ -356,6 +356,10 @@ body {
   object-fit: contain;
 }
 
+.sponsor-logo-frame .sponsor-logo-vector {
+  height: 7rem;
+}
+
 .showcase-grid {
   display: grid;
   gap: 1.5rem;

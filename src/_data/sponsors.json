@@ -16,6 +16,18 @@
     "placeholder": false
   },
   {
+    "name": "Academy of Certified Archivists",
+    "level": "Bronze",
+    "logo": "/static/ACALogo.png",
+    "description": ""
+  },
+  {
+    "name": "Digital Scholar",
+    "level": "Bronze",
+    "logo": "/static/digital-scholar-logo.svg",
+    "description": ""
+  },
+  {
     "name": "JSTOR Digital Stewardship Services",
     "level": "Bronze",
     "logo": "/static/JSTOR.png",
