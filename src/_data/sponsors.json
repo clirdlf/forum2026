@@ -16,6 +16,13 @@
     "placeholder": false
   },
   {
+    "name": "ResourceSpace",
+    "level": "Gold",
+    "url": "https://www.resourcespace.com/",
+    "logo": "/static/RS1057_RS-Logo-Black.svg",
+    "description": "ResourceSpace is a powerful, digital asset management system trusted by libraries, archives, museums, universities and galleries worldwide. We help organisations securely organise, describe, preserve, discover and share digital collections. Flexible metadata, granular permissions, configurable workflows, advanced search and integrations - including IIIF and leading collections management systems - allow the platform to adapt to complex institutional needs. We’re employee owned, ethical and experienced and ResourceSpace combines enterprise functionality with transparent pricing, expert support and freedom from vendor lock-in."
+  },
+  {
     "name": "Academy of Certified Archivists",
     "level": "Bronze",
     "logo": "/static/ACALogo.png",
