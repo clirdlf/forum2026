@@ -15,6 +15,14 @@
     "description": "TIND is an official CERN spin-off providing commercial library management systems, digital preservation, and research data management solutions based on CERN open-source software. Serving academic, public, and special research libraries around the globe, TIND is headquartered in Oslo, Norway.",
     "placeholder": false
   },
+
+  {
+    "name": "Discovery Garden",
+    "level": "Gold",
+    "url": "https://www.discoverygarden.com/",
+    "logo": "/static/dg-logo-darkblue.svg",
+    "description": "Discovery Garden helps libraries, archives, and museums gain control of their digital collections through digital repository solutions backed by deep library expertise. For more than 15 years, our team has worked with institutions to solve the challenges of managing digital collections. Today, we offer Aurora, our fully managed repository platform, alongside tailored enterprise solutions that help organizations manage, organize, and provide access to their digital collections."
+  },
   {
     "name": "ResourceSpace",
     "level": "Gold",
