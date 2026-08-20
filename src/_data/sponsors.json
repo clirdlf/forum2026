@@ -53,5 +53,11 @@
     "level": "Bronze",
     "logo": "/static/JSTOR.png",
     "description": ""
+  },
+  {
+    "name": "LOCKSS",
+    "level": "Bronze",
+    "logo": "/static/lockss-logo-v1-300w.png",
+    "description": ""
   }
 ]
