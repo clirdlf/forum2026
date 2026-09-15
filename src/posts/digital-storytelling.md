@@ -10,7 +10,7 @@ DLF is pleased to welcome the **2026 Virtual DLF Forum Digital Storytelling Fell
 
 The DLF Forum is committed to expanding **access, uplifting new voices, and cultivating a diverse community of practice**. Our Fellowship Program is an important part of this commitment, helping reduce financial barriers while creating opportunities for emerging and established professionals to build relationships, exchange ideas, and contribute their perspectives to the DLF community.
 
-We extend our deep gratitude to **MetaArchive Cooperative** for its generous support of the 2026 Fellowship Program. Their contribution helps DLF create meaningful opportunities for Fellows to explore new ways connecting digital storytelling with community engagement.
+We are grateful for the legacy support of the MetaArchive Cooperative, whose previous investment in the DLF community continues to make the 2026 Digital Storytelling Fellows program possible.
 
 We are excited to introduce the 2026 Digital Storytelling Fellows and welcome the perspectives, creativity, and experiences they will bring to this year’s Forum.
 
