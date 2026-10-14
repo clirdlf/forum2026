@@ -8,7 +8,23 @@ eleventyNavigation:
 
 {% set posts = collections.post | reverse %}
 
-<section id="welcome" class="relative overflow-hidden px-8 pt-44 pb-32 lg:pt-52 lg:pb-36">
+<aside aria-label="Conference livestream" class="mx-auto mt-28 w-[95%] max-w-7xl rounded-2xl bg-primary px-6 py-5 text-on-primary shadow-card lg:px-8">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-3xl" aria-hidden="true">live_tv</span>
+            <div>
+                <p class="font-headline text-lg font-bold">The Forum, wherever you are.</p>
+                <p class="text-sm text-white/90">Watch our conference livestream.</p>
+            </div>
+        </div>
+        <a href="#livestream" class="button-secondary shrink-0 self-start sm:self-auto">
+            View livestream
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_downward</span>
+        </a>
+    </div>
+</aside>
+
+<section id="welcome" class="relative overflow-hidden px-8 pt-16 pb-24 lg:pt-20 lg:pb-28">
     <div class="max-w-7xl mx-auto editorial-grid">
         <div class="col-span-12 lg:col-span-6 z-10 self-center">
             <p class="eyebrow mb-6">Digital Library Federation</p>
@@ -31,6 +47,10 @@ eleventyNavigation:
                     The DLF Forum is a dynamic gathering place for GLAM professionals to share ideas, sustain critical work, and spark innovation. It connects library, archives, and museum practitioners, as well as other knowledge workers, through <strong>intentional community building</strong> and <strong>collaborative exchange</strong>.
                 </p>
             <div class="mt-12 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <a href="#livestream" class="button-primary">
+                    <span class="material-symbols-outlined text-base" aria-hidden="true">live_tv</span>
+                    View livestream
+                </a>
                 {% if metadata.registration_url %}
                     <a href="{{ metadata.registration_url }}" class="button-primary">Register</a>
                 {% endif %}
@@ -47,6 +67,43 @@ eleventyNavigation:
                 A forum shaped around shared practice, open conversation, and the day-to-day realities of library, archives, and museum work.
             </p>
             <div class="absolute -right-6 top-8 hidden h-32 w-32 rounded-full bg-primary/8 blur-3xl lg:block"></div>
+        </div>
+    </div>
+</section>
+<section id="livestream" aria-labelledby="livestream-title" class="border-y border-outline-variant/30 bg-surface-container-low px-8 py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl">
+        <div class="mb-8 flex flex-wrap items-end justify-between gap-6">
+            <div class="max-w-2xl">
+                <p class="eyebrow">Join us online</p>
+                <h2 id="livestream-title" class="section-title mt-3">Watch the Forum livestream.</h2>
+                <p class="mt-5 text-lg leading-8 text-on-surface-variant">Tune in here for the conference broadcast{% if metadata.dates %} on {{ metadata.dates }}{% endif %}.</p>
+            </div>
+            {% if metadata.program_link %}
+                <a href="{{ metadata.program_link }}" class="button-secondary" target="_blank" rel="noopener noreferrer">
+                    Explore the program
+                    <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_outward</span>
+                </a>
+            {% endif %}
+        </div>
+        <div class="overflow-hidden rounded-3xl border border-primary/20 bg-on-primary-fixed shadow-lifted">
+            <div class="aspect-video">
+                <iframe
+                    class="block h-full w-full border-0"
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/hZbeU0wbFFk?si=h_DbduVKDDt_qgCZ"
+                    title="Virtual DLF Forum 2026 livestream"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="border-t border-white/15 px-5 py-4 text-sm leading-6 text-white md:px-6">
+                <a href="https://www.youtube.com/watch?v=hZbeU0wbFFk" class="inline-flex items-center gap-2 font-semibold underline underline-offset-4" target="_blank" rel="noopener noreferrer">
+                    Watch on YouTube
+                    <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_outward</span>
+                </a>
+            </div>
         </div>
     </div>
 </section>
