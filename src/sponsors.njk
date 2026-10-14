@@ -57,11 +57,11 @@ eleventyNavigation:
                                     <div class="flex h-full flex-col">
                                         {% if sponsor.url %}
                                             <a class="sponsor-logo-frame" href="{{ sponsor.url }}" target="_blank" rel="noopener noreferrer" aria-label="Visit {{ sponsor.name }}">
-                                                <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }} logo" loading="lazy" decoding="async">
+                                                <img{% if '.svg' in sponsor.logo %} class="sponsor-logo-vector"{% endif %} src="{{ sponsor.logo }}" alt="{{ sponsor.name }} logo" loading="lazy" decoding="async"{% if '.svg' in sponsor.logo %} eleventy:ignore{% endif %}>
                                             </a>
                                         {% else %}
                                             <div class="sponsor-logo-frame">
-                                                <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }} logo" loading="lazy" decoding="async">
+                                                <img{% if '.svg' in sponsor.logo %} class="sponsor-logo-vector"{% endif %} src="{{ sponsor.logo }}" alt="{{ sponsor.name }} logo" loading="lazy" decoding="async"{% if '.svg' in sponsor.logo %} eleventy:ignore{% endif %}>
                                             </div>
                                         {% endif %}
 

@@ -15,10 +15,56 @@
     "description": "TIND is an official CERN spin-off providing commercial library management systems, digital preservation, and research data management solutions based on CERN open-source software. Serving academic, public, and special research libraries around the globe, TIND is headquartered in Oslo, Norway.",
     "placeholder": false
   },
+
+  {
+    "name": "Discovery Garden",
+    "level": "Gold",
+    "url": "https://www.discoverygarden.com/",
+    "logo": "/static/dg-logo-darkblue.svg",
+    "description": "Discovery Garden helps libraries, archives, and museums gain control of their digital collections through digital repository solutions backed by deep library expertise. For more than 15 years, our team has worked with institutions to solve the challenges of managing digital collections. Today, we offer Aurora, our fully managed repository platform, alongside tailored enterprise solutions that help organizations manage, organize, and provide access to their digital collections."
+  },
+  {
+    "name": "ResourceSpace",
+    "level": "Gold",
+    "url": "https://www.resourcespace.com/",
+    "logo": "/static/RS1057_RS-Logo-Black.svg",
+    "description": "ResourceSpace is a powerful, digital asset management system trusted by libraries, archives, museums, universities and galleries worldwide. We help organisations securely organise, describe, preserve, discover and share digital collections. Flexible metadata, granular permissions, configurable workflows, advanced search and integrations - including IIIF and leading collections management systems - allow the platform to adapt to complex institutional needs. We’re employee owned, ethical and experienced and ResourceSpace combines enterprise functionality with transparent pricing, expert support and freedom from vendor lock-in."
+  },
+  {
+    "name": "HathiTrust",
+    "level": "Silver",
+    "url": "https://www.hathitrust.org/",
+    "logo": "/static/LG-1200x312-hathitrust-logo-horizontal.png",
+    "description": "HathiTrust, founded in 2008 as a not-for-profit collaborative of academic and research libraries, now preserves more than 19 million digitized items in its digital library, all originally published as print items from curated academic library collections. HathiTrust offers reading access to the fullest extent allowable by U.S. and international copyright law and explores opportunities to strengthen academic libraries by delivering new and emerging services based on the collection. It contributes to research, scholarship, and the public good by collaboratively collecting, organizing, preserving, and sharing the record of human knowledge."
+  },
+  {
+    "name": "Academy of Certified Archivists",
+    "level": "Bronze",
+    "logo": "/static/ACALogo.png",
+    "description": ""
+  },
+  {
+    "name": "Caia Software & Solutions Inc.",
+    "level": "Bronze",
+    "logo": "/static/caia_10yr_logo_purple-SVG.svg",
+    "description": ""
+  },
+  {
+    "name": "Digital Scholar",
+    "level": "Bronze",
+    "logo": "/static/digital-scholar-logo.svg",
+    "description": ""
+  },
   {
     "name": "JSTOR Digital Stewardship Services",
     "level": "Bronze",
     "logo": "/static/JSTOR.png",
+    "description": ""
+  },
+  {
+    "name": "LOCKSS",
+    "level": "Bronze",
+    "logo": "/static/lockss-logo-v1-300w.png",
     "description": ""
   }
 ]
