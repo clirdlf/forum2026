@@ -48,6 +48,9 @@
                                         {% endif %}
                                         <a class="{{ childClass }}" href="{{ child.url }}"{% if child.url == page.url %} aria-current="page"{% endif %}>{{ child.title }}</a>
                                     {% endfor %}
+                                    {% if entry.title == 'Resources' %}
+                                        <a class="block rounded-lg px-4 py-3 font-headline text-base font-bold tracking-tight text-on-surface/75 transition-colors duration-200 hover:bg-primary/8 hover:text-on-primary-fixed-variant focus:bg-primary/8 focus:text-on-primary-fixed-variant" href="https://www.diglib.org/about/code-of-conduct/">Code of Conduct</a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -111,6 +114,9 @@
                             {% endif %}
                             <a class="{{ childMobileClass }}" href="{{ child.url }}" data-nav-link{% if child.url == page.url %} aria-current="page"{% endif %}>{{ child.title }}</a>
                         {% endfor %}
+                        {% if entry.title == 'Resources' %}
+                            <a class="font-headline rounded-lg px-3 py-2 text-base font-bold tracking-tight text-on-surface/75 transition-colors duration-300 hover:bg-primary/8 hover:text-on-primary-fixed-variant" href="https://www.diglib.org/about/code-of-conduct/" data-nav-link>Code of Conduct</a>
+                        {% endif %}
                     </div>
                 {% endif %}
                 {% endif %}
